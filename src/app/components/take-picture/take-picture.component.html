@@ -1,0 +1,27 @@
+<div class = "container">
+    <div class = "row">
+        <div class = "col">
+            <h1>Great!</h1>
+            <h3>Please look directly at the camera so we can spot you</h3>
+        </div>
+    <div class = "col" *ngIf = "!webcamImage">
+        <webcam [height]="400" 
+                [width]="1000" 
+                [trigger]="triggerObservable"
+                    (imageCapture)="handleImage($event)">
+         </webcam>
+         
+        <button class="actionBtn btn btn-success" (click)="triggerSnapshot();">
+            Click Here and take the Shot</button>
+    </div>  
+        <div class="snapshot" *ngIf="webcamImage">
+          <h2>Here is your image!</h2>
+          <img [src]="webcamImage.imageAsDataUrl"/>
+          <button class="actionBtn btn btn-success mt-5" (click)="retakeSnapshot();">
+            Click here to retake the picture</button>
+            <button class="actionBtn btn btn-success mt-5 ml-5" routerLink = "/startquestionare" (click) = "changeHeader()">
+                Click here to continue</button>
+        </div>
+        
+    </div>
+</div>

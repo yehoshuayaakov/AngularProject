@@ -1,28 +1,28 @@
-<div class = "container-fluid">
+<div class = "container">
     <h1>Welcome intern!</h1>
     <br>
     <p>Please fill in the following fiels to create an account</p>
-    <form class="row g-3">
+    <form class="row g-3" >
         <div class="col-md-4">
-          <label for="inputEmail4" class="form-label">ID number</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder=" Placeholder">
+          <label for="IdNum" class="form-label">ID number</label>
+          <input  class="form-control" id="IdNum" placeholder="Your ID number" [(ngModel)]="intern.Id"  [ngModelOptions]="{standalone: true}" required>
         </div>
         <div class="col-md-4">
-          <label for="inputPassword4" class="form-label">Full name</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder=" Placeholder">
+          <label for="fullName" class="form-label">Full name</label>
+          <input type="text" class="form-control" id="fullName" placeholder="Your full name" [(ngModel)]="intern.Name" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-md-4">
-          <label for="inputAddress" class="form-label">Passport/Citizenship Id</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="Placeholder">
+          <label for="passportID" class="form-label">Passport/Citizenship Id</label>
+          <input class="form-control" id="passportID" placeholder="Citenzen/Passport number" [(ngModel)]="intern.CitizenshipId" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-md-4">
-          <label for="inputAddress2" class="form-label">Phone number</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="+972 Placeholder">
+          <label for="phoneNumber" class="form-label">Phone number</label>
+          <input  class="form-control" id="phoneNumber" placeholder="Your phone number" [(ngModel)]="intern.Phonenumber" [ngModelOptions]="{standalone: true}">
         </div>
         <br>
         <div class="col-12 mt-3">
             <p>A verification code will be sent to this number</p>
-            <button type="submit" class="btn btn-primary" routerLink = "/verification">CONTINUE</button>
-          </div>
-      </form>
+            <button type="submit" class="btn btn-primary" routerLink = "/verification" (click) = "createIntern(intern)">CONTINUE</button>
+        </div>
+    </form>
 </div>
