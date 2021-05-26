@@ -16,6 +16,9 @@ import { TakePictureComponent } from './components/take-picture/take-picture.com
 import { WebcamModule } from 'ngx-webcam';
 import { CameraComponent } from './camera/camera.component';
 import { StartquestionareComponent } from './components/startquestionare/startquestionare.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { DetailsFormComponent } from './components/details-form/details-form.component';
+import { ProfessionalDetailFormComponent } from './components/professional-detail-form/professional-detail-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { StartquestionareComponent } from './components/startquestionare/startqu
     WelcomeMessageComponent,
     TakePictureComponent,
     CameraComponent,
-    StartquestionareComponent
+    StartquestionareComponent,
+    LogInComponent,
+    DetailsFormComponent,
+    ProfessionalDetailFormComponent
   ],
   imports: [
     WebcamModule,

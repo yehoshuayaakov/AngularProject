@@ -1,0 +1,28 @@
+<div class = "container mt-5">
+    <p>Professional details</p>
+    <h1 class = "mb-4">Please tell us about yourself, professionally</h1>
+    <form class="row g-3">
+        <div class="col-md-4 mb-2">
+          <label for="institution" class="form-label">Medical institution</label>
+          <input type="text" class="form-control" id="institution">
+        </div>
+        <div class="col-md-4 mb-2">
+          <label for="Residency" class="form-label">Residency</label>
+          <input type="text" class="form-control" id="Residency">
+        </div>
+        <div class="col-md-4 mb-2">
+            <label for="Department" class="form-label">Department</label>
+            <input type="password" class="form-control" id="Department">
+        </div>
+         <br>
+         <div class="row mt-4">
+         <label for="customRange3" class="form-label col-12 range-label">Years of residency</label>
+            
+            <input type="range" class="form-range ml-4" step="0.5" value="0" min="0" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange3">
+            <output>0</output>
+        </div>
+        <div class="col-12 mt-4">
+            <button class = "btn btn-success button">DONE!</button>
+        </div>
+        
+    </form>
