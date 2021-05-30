@@ -1,7 +1,7 @@
 <div class = "container bt-5">
     
     <div class = " mt-5" *ngIf = "firstTry">
-        <h2>Welcome {{currentUser.Name}}! </h2>
+        <h2>Welcome {{currentUser.Firstname}}! </h2>
         
         <h3 >Please type the mobile verifcation <br>you recieved</h3>          
         
@@ -14,10 +14,10 @@
 <form [formGroup] = "myCode" (ngSubmit) = "getCode(myCode)">
     <div class="input-group  mt-5">
         <div class = "row  ">
-        <input formControlName="first" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text">
-        <input formControlName="second" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text">
-        <input formControlName="third" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text">
-        <input formControlName="fourth" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text"> 
+        <input #first formControlName="first" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(first.value.length == 1) ? second.focus() : ''" autofocus>
+        <input #second formControlName="second" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(second.value.length == 1) ? third.focus() : ''">
+        <input #third formControlName="third" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(third.value.length == 1) ? fourth.focus() : ''">
+        <input #fourth formControlName="fourth" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text"> 
         <br>
         </div>   
     </div>

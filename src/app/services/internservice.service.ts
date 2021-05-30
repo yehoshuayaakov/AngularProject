@@ -7,6 +7,7 @@ import { internModel } from '../model/intern.model';
 export class InternserviceService {
 internList : internModel [];
 isIntern : boolean = false;
+firstName: String;
 currentInternUser: internModel = {
   Name: null,
   Id: null,
@@ -25,5 +26,9 @@ currentInternUser: internModel = {
   }
  changeHeader(){
    this.isIntern = true;
+ }
+ getFirstName(){
+   var fullname = this.currentInternUser.Name.split(' ');
+  return fullname[0];
  }
 }

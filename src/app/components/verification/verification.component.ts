@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { internModel } from 'src/app/model/intern.model';
 import { InternserviceService} from 'src/app/services/internservice.service'
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { ThrowStmt } from '@angular/compiler';
 import { Router } from '@angular/router';
+import { ServerService } from 'src/app/services/server.service';
 
 
 @Component({
@@ -20,10 +21,12 @@ export class VerificationComponent implements OnInit {
   codes: string [];
   verification: boolean = false;
   firstTry: boolean = true;
-  constructor(private fb : FormBuilder, internService: InternserviceService,  private router: Router) {
+  @ViewChild("first") firstNumber : ElementRef;
+  constructor(private fb : FormBuilder, internService: InternserviceService,  private router: Router, private server: ServerService) {
     this.currentUser = internService.currentInternUser;
     this.codeNumber = this.createCodes();
     this.realCode = this.codeNumber.toString();
+    this.currentUser.Firstname = internService.getFirstName();
     console.log(this.realCode);
    }
 
@@ -35,6 +38,7 @@ export class VerificationComponent implements OnInit {
       fourth: ''
     });
   }
+  
   getCode(form: FormGroup){
     this.code = form.value.first + form.value.second + form.value.third + form.value.fourth;
   console.log(this.code);
@@ -42,6 +46,7 @@ export class VerificationComponent implements OnInit {
   if (this.code == this.realCode){
     this.verification = true;
     this.router.navigate(['/picture']);
+    this.register();
     console.log(this.verification)
   }
   else {
@@ -53,11 +58,15 @@ export class VerificationComponent implements OnInit {
       third: '',
       fourth: ''
     });
+    this.firstNumber.nativeElement.focus();
   }
 }
 checkCode(){
   if (this.code == this.realCode){
+    this.register();
+    console.log(this.register());
     return true;
+   
   }
 }
 resend(){
@@ -72,4 +81,10 @@ if (x <1000){
 return x;
   
 }
+register(){
+  this.server.registerIntern(this.currentUser.Name, this.currentUser.Phonenumber, this.currentUser.Id, this.currentUser.CitizenshipId).subscribe(data=>{
+console.log(data);
+  })
+}
+
 }

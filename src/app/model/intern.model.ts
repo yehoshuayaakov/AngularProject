@@ -6,4 +6,5 @@ export interface internModel {
     Phonenumber: number;
     CitizenshipId: number;  
     image?: WebcamImage; 
+    Firstname?: string;
 }
