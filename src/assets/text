@@ -1,0 +1,11 @@
+this.currentUser.personalInfo.age = form.value.age;
+this.currentUser.personalInfo.Country = form.value.country;
+this.currentUser.personalInfo.City = form.value.city;
+this.currentUser.personalInfo.AcademicInstitution = form.value.instituion;
+this.currentUser.personalInfo.GraduationYear = form.value.year;
+
+  this.currentUser.professionalInfo.medicalInstitution = form.value.instituion;
+this.currentUser.professionalInfo.Residency = form.value.residency;
+this.currentUser.professionalInfo.City form.value.city;
+this.currentUser.professionalInfo.AcadecInstitution = form.value.instituion;
+this.currentUser.professionalInfo.GraduionYear = form.value.year;

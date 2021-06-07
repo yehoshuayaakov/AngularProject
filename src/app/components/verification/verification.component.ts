@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup} from '@angular/forms';
 import { ThrowStmt } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { ServerService } from 'src/app/services/server.service';
+import { AuthentificationService } from 'src/app/services/authentification.service';
 
 
 @Component({
@@ -22,12 +23,13 @@ export class VerificationComponent implements OnInit {
   verification: boolean = false;
   firstTry: boolean = true;
   @ViewChild("first") firstNumber : ElementRef;
-  constructor(private fb : FormBuilder, internService: InternserviceService,  private router: Router, private server: ServerService) {
+  constructor(private auth : AuthentificationService, private fb : FormBuilder, private internService: InternserviceService,  private router: Router, private server: ServerService) {
     this.currentUser = internService.currentInternUser;
     this.codeNumber = this.createCodes();
     this.realCode = this.codeNumber.toString();
     this.currentUser.Firstname = internService.getFirstName();
     console.log(this.realCode);
+    
    }
 
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class VerificationComponent implements OnInit {
       third: '',
       fourth: ''
     });
+  
   }
   
   getCode(form: FormGroup){
@@ -45,8 +48,10 @@ export class VerificationComponent implements OnInit {
   console.log(this.verification)
   if (this.code == this.realCode){
     this.verification = true;
+    
     this.router.navigate(['/picture']);
     this.register();
+    
     console.log(this.verification)
   }
   else {
@@ -84,6 +89,8 @@ return x;
 register(){
   this.server.registerIntern(this.currentUser.Name, this.currentUser.Phonenumber, this.currentUser.Id, this.currentUser.CitizenshipId).subscribe(data=>{
 console.log(data);
+this.internService.isIntern = true;
+this.auth.register(this.currentUser.Id);
   })
 }
 

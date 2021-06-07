@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { internModel } from 'src/app/model/intern.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { InternserviceService} from 'src/app/services/internservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-intern-form',
@@ -17,7 +18,7 @@ intern: internModel = {
 }
 currentUser : internModel;
 
-  constructor(private internService : InternserviceService) { 
+  constructor(private router : Router, private internService : InternserviceService) { 
     this.currentUser = this.internService.currentInternUser;
   }
 
@@ -25,10 +26,13 @@ currentUser : internModel;
   }
 
   createIntern(i: internModel){
+    console.log("hello");
+    
     this.intern = i;
     console.log(i);
     this.internService.addIntern(i);
     this.internService.changeCurrentUser(i);
+    this.router.navigate([ "/verification"]);
     
   }
 

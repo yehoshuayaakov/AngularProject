@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto underline">
     <div class="container-fluid">
-      <h1>Logo</h1>
+      <img src = "../assets/logo.png">
       
-    <div *ngIf = "!isIntern; else other_content">
+    <div *ngIf = "!isIntern">
       <div class="navbar-nav ml-auto mb-2 mb-lg-0" id="navbarText">
         <span class="navbar-text ml-auto">
             Already have an account
@@ -14,10 +14,12 @@
         </ul>  
       </div>
     </div>
+    <div *ngIf = "isIntern">
+      
+      <div>{{currentUser.Name}}</div>
     </div>
-    <div>
-      <ng-template #other_content>{{currentUser.Name}}</ng-template>
     </div>
+    
    
   </nav>
  

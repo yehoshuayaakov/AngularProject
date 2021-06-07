@@ -19,6 +19,7 @@ import { StartquestionareComponent } from './components/startquestionare/startqu
 import { LogInComponent } from './components/log-in/log-in.component';
 import { DetailsFormComponent } from './components/details-form/details-form.component';
 import { ProfessionalDetailFormComponent } from './components/professional-detail-form/professional-detail-form.component';
+import { SimulatorOverviewComponent } from './components/simulator-overview/simulator-overview.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProfessionalDetailFormComponent } from './components/professional-detai
     StartquestionareComponent,
     LogInComponent,
     DetailsFormComponent,
-    ProfessionalDetailFormComponent
+    ProfessionalDetailFormComponent,
+    SimulatorOverviewComponent
   ],
   imports: [
     WebcamModule,

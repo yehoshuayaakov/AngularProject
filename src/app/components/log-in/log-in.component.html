@@ -1,19 +1,25 @@
-<div class = "container">
-    <h1 class = "mt-5">Welcome! Please log in.</h1>
-    <form>
+<div class = "container border-success">
+    <h1 class = "mt-5 text-center">Welcome! Please log in.</h1>
+    <form >
+        <div class="card mt-4 login" style="width: 15rem; padding: 20px;">
         <div class = "row g-2">
             <div class = "col-auto">
                 <label for = "name" class = "form-label mr-5"> User Name</label>
-                <input type = "text" class="form-control" id ="name">
+                <input type = "text" class="form-control" id ="name" [(ngModel)] = "name" [ngModelOptions]="{standalone: true}" required>
             </div>
         </div>
         <br>
         <div class = "row g-2">
             <div class = 'col-auto clear' >
-                <label for = "password" class = "form-label"> Password</label>
-                <input type = "password" class="form-control" id ="password">
+                <label for = "id" class = "form-label"> ID Number</label>
+                <input type = "password" class="form-control" id ="id" [(ngModel)] = "id" [ngModelOptions]="{standalone: true}" required>
             </div>
         </div>
-        <button class = "btn btn-primary mt-4" >Log in</button>
+        <div class = "row g-2">
+            <div class = "col-auto" >
+                <button class = "btn btn-primary " (click) = "login()">Log in</button>
+            </div>
+        </div>
+    </div>
     </form>
 </div>

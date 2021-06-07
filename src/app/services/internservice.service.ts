@@ -12,7 +12,13 @@ currentInternUser: internModel = {
   Name: null,
   Id: null,
   Phonenumber: null,
-  CitizenshipId: null
+  CitizenshipId: null,
+  age :  null,
+  Country : null,
+  City : null,
+  GraduationYear : null,
+  AcademicInstitution :  null
+  
 };
   constructor() { 
     this.internList = [];
