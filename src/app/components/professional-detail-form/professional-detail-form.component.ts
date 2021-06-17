@@ -39,9 +39,10 @@ this.router.navigate(['/registerPassword']);
 }
 
 addProfessionalDetails(form : FormGroup){
-  this.server.addProfessionalInfo(form.value).subscribe(data => {
-    console.log(data);
-})
+  this.internservice.addProfessionalInfo(form.value);
+  //this.server.addProfessionalInfo(form.value).subscribe(data => {
+    //console.log(data);
+//})
   
 }
 }

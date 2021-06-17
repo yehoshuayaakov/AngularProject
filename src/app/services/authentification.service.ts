@@ -31,8 +31,8 @@ data: string;
       }
     });
   }
-  register(password : string, name : string){
-    this.server.post<internModel>('auth/register', {password : password, name: name}).subscribe(data => {
+  register(password : string, email : string){
+    this.server.post<internModel>('auth/register', {password : password, email: email}).subscribe(data => {
       console.log();
     })
   }

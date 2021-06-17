@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { internModel } from 'src/app/model/intern.model';
 import { supervisorModel } from 'src/app/model/supervisor.model';
+import { InternserviceService } from 'src/app/services/internservice.service';
 import { ServerService } from 'src/app/services/server.service';
 import { SupervisorService } from 'src/app/services/supervisor.service';
 
@@ -10,26 +12,33 @@ import { SupervisorService } from 'src/app/services/supervisor.service';
   styleUrls: ['./supervisor-form.component.scss']
 })
 export class SupervisorFormComponent implements OnInit {
-  supervisor: supervisorModel = {
-    Name: null,
-    Phonenumber: null,
+  supervisor: internModel = {
+    name: null,
+    phonenumber: null,
     Id: null,
-    CitizenshipId: null,
+    citizenshipId: null,
     email : null,
-    //roleNumber : 199
+    roleNumber : 199
   }
-  constructor(private supervisorService : SupervisorService, private router : Router, private server : ServerService) { }
+  constructor(private internService : InternserviceService, private supervisorService : SupervisorService, private router : Router, private server : ServerService) { 
+    this.internService.currentInternUser = this.supervisor;
+  }
 
   ngOnInit(): void {
   }
-  createSupervisor(s: supervisorModel){
-    console.log("hello");
-    this.supervisorService.isSupervisor = true;
-    this.server.registerIntern( this.supervisor.Name, this.supervisor.Phonenumber, this.supervisor.Id, this.supervisor.CitizenshipId, this.supervisor.email )
+  createSupervisor(s: internModel){
+    console.log(s);
+    //this.supervisorService.isSupervisor = true;
+    //this.server.registerIntern( this.supervisor.name, this.supervisor.phonenumber, this.supervisor.Id, this.supervisor.citizenshipId, this.supervisor.email )
     //this.intern = i;
     //console.log(i);
-    //this.internService.addIntern(i);
-    this.supervisorService.changeCurrentUser(s);
+    this.internService.changeCurrentUser(s);
+    //console.log(s);
+    
+    //this.server.registerUser(s).subscribe(data=> {
+      //console.log(data);
+    //});
+    //this.supervisorService.changeCurrentUser(s);
     this.router.navigate(["/registerPassword"]);
     
   }

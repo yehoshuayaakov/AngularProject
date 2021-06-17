@@ -1,8 +1,9 @@
 export interface supervisorModel {
-    Name: string;
+    name: string;
     Id: string;
-    Phonenumber: number;
-    CitizenshipId: number; 
+    phonenumber: number;
+    citizenshipId: number; 
     email: string;
     roleNumber?: number;
+    password?: number;
 }

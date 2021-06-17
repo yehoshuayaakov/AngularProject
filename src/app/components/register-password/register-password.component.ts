@@ -24,8 +24,19 @@ this.currentUser = this.internService.currentInternUser;
   }
 register(){
   if (this.password == this.confirmation){
-    this.authenticate.register(this.password, this.currentUser.Name);
+    //this.internService.currentInternUser.password = this.password;
+    this.server.registerUser(this.currentUser).subscribe(data=>{
+      console.log("call from agular to server " + data);
+    });
+    console.log(this.currentUser);
+    
+    this.authenticate.register(this.password, this.currentUser.email);
+    if (this.currentUser.roleNumber<100){
     this.router.navigate(['/simulatorOverview'])
+    }
+    else if (this.currentUser.roleNumber>99){
+      this.router.navigate(['/supervisorEntry'])
+    }
   }
   else{
     this.tryAgain = true;

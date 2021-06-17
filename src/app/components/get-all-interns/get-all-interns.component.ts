@@ -12,6 +12,7 @@ import { ServerService } from 'src/app/services/server.service';
 })
 export class GetAllInternsComponent implements OnInit {
 interns : any [] = [];
+supervisors : any [] = [];
 showInterns : boolean = false;
 showDetails : boolean = false;
 chosenIntern : internModel;
@@ -25,7 +26,19 @@ token;
     this.server.getInternsWithToken().subscribe(internList=> {
       console.log("getting List");
       console.log(internList);
-      this.interns = internList ;
+      internList.forEach(item => {
+        if (item.roleNumber < 100){
+          this.interns.push(item);
+        }
+        else if (item.roleNumber>99){
+          this.supervisors.push(item);
+        }
+      });
+      console.log("internlist");
+      console.log(this.interns);
+      
+      
+      //this.interns = internList ;
       this.showInterns = true;
       this.headerForAll=true;
       internService.internList = this.interns;
@@ -62,7 +75,13 @@ goBack(){
   this.server.getAllInterns().subscribe(internList=> {
     console.log("getting List");
     console.log(internList);
-    this.interns = internList ;
+    internList.forEach(item => {
+      if (item.roleNumber < 100){
+        this.interns.push(item);
+      }
+    });
+  
+    //this.interns = internList ;
     this.showInterns = true;
     this.internService.internList = this.interns;
     this.headerForAll = true;

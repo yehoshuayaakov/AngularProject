@@ -92,14 +92,14 @@ return x;
 }
 register(){
   if (this.internService.isIntern){
-  this.server.registerIntern(this.currentUser.Name, this.currentUser.Phonenumber, this.currentUser.Id, this.currentUser.CitizenshipId, this.currentUser.email).subscribe(data=>{
-console.log(data);
+  //this.server.registerIntern(this.currentUser.Name, this.currentUser.Phonenumber, this.currentUser.Id, this.currentUser.CitizenshipId, this.currentUser.email).subscribe(data=>{
+//console.log(data);
 
 //this.auth.register(this.currentUser.Id);
-  })
+  //})
 }
 if (this.supervisorService.isSupervisor){
-  this.server.registerSupervisor(this.supervisor.Name, this.supervisor.Phonenumber, this.supervisor.Id, this.supervisor.CitizenshipId, this.supervisor.email).subscribe(data=> {
+  this.server.registerSupervisor(this.supervisor.name, this.supervisor.phonenumber, this.supervisor.Id, this.supervisor.citizenshipId, this.supervisor.email).subscribe(data=> {
     console.log(data);
       })
     }

@@ -15,12 +15,14 @@ intern: internModel = {
   Id: null,
   phonenumber: null,
   citizenshipId: null,
-  email : null
+  email : null,
+  roleNumber : 99,
 }
 currentUser : internModel;
 
   constructor(private router : Router, private internService : InternserviceService) { 
     this.currentUser = this.internService.currentInternUser;
+    //this.internService.currentInternUser.roleNumber = 99;
   }
 
   ngOnInit(): void {

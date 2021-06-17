@@ -6,10 +6,10 @@ import { supervisorModel } from '../model/supervisor.model';
 })
 export class SupervisorService {
 supervisor : supervisorModel = {
-  Name: null,
+  name: null,
   Id: null,
-  Phonenumber: null,
-  CitizenshipId: null,
+  phonenumber: null,
+  citizenshipId: null,
   email: null
 };
 isSupervisor: boolean = false;

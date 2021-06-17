@@ -17,7 +17,7 @@ export class ServerService {
   }
 
   registerIntern(name : string, phonenumber : number, id : string, citizenshipId :  number, email : string): Observable<object>{
-    return this.http.post( this.baseUrl + "api/createUser/create", {name: name, phonenumber: phonenumber, Id : id, citizenshipId : citizenshipId, email : email, roleNumber : this.internRoleNumber})
+    return this.http.post( this.baseUrl + "api/interns/create", {name: name, phonenumber: phonenumber, Id : id, citizenshipId : citizenshipId, email : email, roleNumber : this.internRoleNumber})
   }
   addPersonalInfo(Info : object) : Observable<any>{
     console.log(Info);
@@ -48,7 +48,9 @@ getInternsWithToken(): Observable<any>{
   
   return this.http.get(this.baseUrl + "api/interns/getAll", {'headers': headers});
 }
-registerUser(user : internModel): Observable<object>{
-  return this.http.post( this.baseUrl + "api/createUser/create", {internSchema : user})
+registerUser(user : {}): Observable<object>{
+  console.log("server test " + user);
+  
+  return this.http.post(this.baseUrl + "createUser/create", user)
 }
 }

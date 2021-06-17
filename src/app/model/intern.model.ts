@@ -21,9 +21,9 @@ export interface internModel {
     }, 
 
     professionalDetails? : {
-        medicalInstitution : string,
-        residency : string,
-        department : string,
-        yearsOfResidency : number
+        medicalInstitution? : string,
+        residency? : string,
+        department? : string,
+        yearsOfResidency? : number
     };
 }

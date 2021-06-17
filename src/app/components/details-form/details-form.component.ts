@@ -42,8 +42,9 @@ this.router.navigate(["/professionalDetails"])
 this.addDetails(form);
 }
 addDetails(form : FormGroup){
-  this.server.addPersonalInfo(form.value).subscribe(data =>{
-    console.log(form.value);
-  })
+  this.internService.addPersonalInfo(form.value);
+  //this.server.addPersonalInfo(form.value).subscribe(data =>{
+    //console.log(form.value);
+ // })
 }
 }

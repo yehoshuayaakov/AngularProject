@@ -9,3 +9,13 @@ this.currentUser.professionalInfo.Residency = form.value.residency;
 this.currentUser.professionalInfo.City form.value.city;
 this.currentUser.professionalInfo.AcadecInstitution = form.value.instituion;
 this.currentUser.professionalInfo.GraduionYear = form.value.year;
+
+getAll search
+<div class = "col-auto">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control col-auto  mt-4 move" id="searchName" placeholder="Search by name..." [(ngModel)]="searchedIntern">
+                        <div class="input-group-append">
+                            <button class = "btn border-success col-auto ml-5 mt-4" (click)="findIntern()">Search</button>
+                        </div>
+                        </div>  
+                    </div> 

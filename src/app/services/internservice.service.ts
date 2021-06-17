@@ -28,7 +28,7 @@ currentInternUser: internModel = {
     residency : null,
     department : null,
     yearsOfResidency : null
-}
+},
 };
   constructor() { 
     this.internList = [];
@@ -36,6 +36,12 @@ currentInternUser: internModel = {
 
   addIntern(i: internModel){
     this.internList.push(i);
+  }
+  addPersonalInfo(info: object){
+    this.currentInternUser.personalDetails = info;
+  }
+  addProfessionalInfo(info: object){
+    this.currentInternUser.professionalDetails = info;
   }
   changeCurrentUser(i: internModel){
     this.currentInternUser = i;
