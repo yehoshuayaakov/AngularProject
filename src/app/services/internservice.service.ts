@@ -8,17 +8,27 @@ export class InternserviceService {
 internList : internModel [];
 isIntern : boolean = false;
 firstName: String;
+chosenIntern: any;
 currentInternUser: internModel = {
-  Name: null,
+  name: null,
   Id: null,
-  Phonenumber: null,
-  CitizenshipId: null,
+  phonenumber: null,
+  citizenshipId: null,
+  email : null,
+  password: null,
+  personalDetails : {
   age :  null,
-  Country : null,
-  City : null,
-  GraduationYear : null,
-  AcademicInstitution :  null
-  
+  country : null,
+  city : null,
+  graduationYear : null,
+  academicInstitution :  null,
+  },
+  professionalDetails : {
+    medicalInstitution : null,
+    residency : null,
+    department : null,
+    yearsOfResidency : null
+}
 };
   constructor() { 
     this.internList = [];
@@ -34,7 +44,7 @@ currentInternUser: internModel = {
    this.isIntern = true;
  }
  getFirstName(){
-   var fullname = this.currentInternUser.Name.split(' ');
+   var fullname = this.currentInternUser.name.split(' ');
   return fullname[0];
  }
 }

@@ -20,29 +20,30 @@ currentUser : internModel;
   ngOnInit(): void {
     console.log("testtt1");
     this.personalInfo = new FormGroup({
-      age: new FormControl(''),
-      institution: new FormControl(''), 
+      age: new FormControl(''), 
       country: new FormControl(''),
       city: new FormControl(''),
-      graduationYear: new FormControl(''),
-        
+      academicInstitution: new FormControl(''),
+      graduationYear: new FormControl('')   
      })
      console.log("testtt2");
   }
 sendForm(form :  FormGroup){
   console.log("testtt3");
 console.log(form.value);
-this.currentUser.age = form.value.age;
-this.currentUser.GraduationYear = form.value.year;
-this.currentUser.Country = form.value.country;
-this.currentUser.City = form.value.city;
-this.currentUser.GraduationYear = form.value.year;
+console.log(form.value.age);
+
+/*this.currentUser.personalDetails.age = form.value.age;
+this.currentUser.personalDetails.graduationYear = form.value.year;
+this.currentUser.personalDetails.country = form.value.country;
+this.currentUser.personalDetails.city = form.value.city;
+this.currentUser.personalDetails.graduationYear = form.value.year;*/
 this.router.navigate(["/professionalDetails"])
-this.addDetails();
+this.addDetails(form);
 }
-addDetails(){
-  this.server.addPersonalInfo(this.personalInfo.value).subscribe(data =>{
-    console.log(data);
+addDetails(form : FormGroup){
+  this.server.addPersonalInfo(form.value).subscribe(data =>{
+    console.log(form.value);
   })
 }
 }

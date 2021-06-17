@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthentificationService } from 'src/app/services/authentification.service';
@@ -8,15 +9,19 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
+  email: string;
+  password : string;
+  verification : boolean;
+  constructor(private authentification : AuthentificationService, private router : Router) { 
+    
+  }
 
-  constructor(private authentification : AuthentificationService, private router : Router) { }
-name: string;
-id : string;
+
   ngOnInit(): void {
   }
 
   login(){
-    this.authentification.login(this.name, this.id);
+    this.authentification.login(this.email, this.password);
     
   }
 }

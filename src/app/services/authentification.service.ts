@@ -8,21 +8,32 @@ import { ServerService } from './server.service';
 })
 export class AuthentificationService {
 intern : internModel;
+verification : boolean;
+data: string;
   constructor(private server : ServerService, private router : Router) { }
 
-  login(name: string, Id : string){
-    this.server.post<internModel>('auth/login', {name, Id}).subscribe(data =>{
+  login(email: string, password : string){
+    this.server.post<internModel>('auth/login', {email, password}).subscribe(data =>{
       console.log(data);
       if (data && data.token){
+
         this.server.token = data.token;
-        this.intern = data;
-        this.router.navigate(['/simulatorOverview']);
+        //this.intern = data;
+        if (data.roleNumber && data.roleNumber > 100){
+          this.router.navigate(['/supervisorEntry']);
+        }
+        else if (data.roleNumber && data.roleNumber <100){
+          this.router.navigate(['/simulatorOverview'])
+        }
       }    
+      else {
+        this.verification = false;
+      }
     });
   }
-  register(Id : string){
-    this.server.post<internModel>('auth/register', {Id}).subscribe(data => {
-      console.log(data);
+  register(password : string, name : string){
+    this.server.post<internModel>('auth/register', {password : password, name: name}).subscribe(data => {
+      console.log();
     })
   }
 }

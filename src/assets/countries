@@ -246,4 +246,4 @@
             <option value="Zimbabwe">Zimbabwe</option>
             <option>other</option>
         </select>
-      
+      <input id = "country" formControlName = "country" type ="text" class = "form-control">

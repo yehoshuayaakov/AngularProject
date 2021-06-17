@@ -1,28 +1,33 @@
-<div class = "container">
+<div class = "container border p-3 mt-4">
     <h1>Welcome intern!</h1>
     <br>
     <p>Please fill in the following fiels to create an account</p>
     <form class="row g-3" >
-        <div class="col-md-4">
+        <div class="col-md-4 mt-4">
           <label for="IdNum" class="form-label">ID number</label>
           <input  class="form-control" id="IdNum" placeholder="Your ID number" [(ngModel)]="intern.Id"  [ngModelOptions]="{standalone: true}" required>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-4">
           <label for="fullName" class="form-label">Full name</label>
           <input type="text" class="form-control" id="fullName" placeholder="Your full name" [(ngModel)]="intern.Name" [ngModelOptions]="{standalone: true}">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-4">
           <label for="passportID" class="form-label">Passport/Citizenship Id</label>
           <input class="form-control" id="passportID" placeholder="Citenzen/Passport number" [(ngModel)]="intern.CitizenshipId" [ngModelOptions]="{standalone: true}">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-4">
           <label for="phoneNumber" class="form-label">Phone number</label>
           <input  class="form-control" id="phoneNumber" placeholder="Your phone number" [(ngModel)]="intern.Phonenumber" [ngModelOptions]="{standalone: true}">
         </div>
         <br>
-        <div class="col-12 mt-3">
+        <div class="col-md-4 mt-4">
+          <label for="email" class="form-label">Email address</label>
+          <input  type="email" class="form-control" id="email" placeholder="Your email" [(ngModel)]="intern.email" [ngModelOptions]="{standalone: true}">
+      </div>
+        
+        <div class="col-12  mt-4">
             <p>A verification code will be sent to this number</p>
-            <button type="button" class="btn btn-primary"  (click) = "createIntern(intern)">CONTINUE</button>
+            <button type="button" class="btn btn-success mt-3"  (click) = "createIntern(intern)">CONTINUE</button>
         </div>
     </form>
 </div>

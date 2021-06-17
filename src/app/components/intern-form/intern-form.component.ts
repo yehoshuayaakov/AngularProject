@@ -11,10 +11,11 @@ import { Router } from '@angular/router';
 })
 export class InternFormComponent implements OnInit {
 intern: internModel = {
-  Name: null,
+  name: null,
   Id: null,
-  Phonenumber: null,
-  CitizenshipId: null
+  phonenumber: null,
+  citizenshipId: null,
+  email : null
 }
 currentUser : internModel;
 
@@ -27,7 +28,7 @@ currentUser : internModel;
 
   createIntern(i: internModel){
     console.log("hello");
-    
+    this.internService.isIntern = true;
     this.intern = i;
     console.log(i);
     this.internService.addIntern(i);

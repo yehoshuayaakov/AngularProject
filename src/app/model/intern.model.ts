@@ -1,24 +1,29 @@
 import { WebcamImage } from "ngx-webcam";
 
 export interface internModel {
-    Name: string;
+    name: string;
     Id: string;
-    Phonenumber: number;
-    CitizenshipId: number;  
+    phonenumber: number;
+    citizenshipId: number; 
+    email: string; 
     image?: WebcamImage; 
     Firstname?: string;
     token?: String;
+    roleNumber?: number;
+    password? : string;
    
+    personalDetails? : {
     age?: number,
-    Country?: string,
-    City?: string,
-    GraduationYear?: number,
-    AcademicInstitution?: string
-  
-    professionalInfo? : {
-        medicalInstitution : String,
-        Residency : String,
-        Department : String,
-        yearsOfResidency : Number
+    country?: string,
+    city?: string,
+    graduationYear?: number,
+    academicInstitution?: string
+    }, 
+
+    professionalDetails? : {
+        medicalInstitution : string,
+        residency : string,
+        department : string,
+        yearsOfResidency : number
     };
 }

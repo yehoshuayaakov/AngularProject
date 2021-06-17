@@ -20,6 +20,12 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { DetailsFormComponent } from './components/details-form/details-form.component';
 import { ProfessionalDetailFormComponent } from './components/professional-detail-form/professional-detail-form.component';
 import { SimulatorOverviewComponent } from './components/simulator-overview/simulator-overview.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RegisterPasswordComponent } from './components/register-password/register-password.component';
+import { SupervisorFormComponent } from './components/supervisor-form/supervisor-form.component';
+import { GetAllInternsComponent } from './components/get-all-interns/get-all-interns.component';
+import { SupervisorEntryComponent } from './components/supervisor-entry/supervisor-entry.component';
+import { MoreInternInfoComponent } from './components/more-intern-info/more-intern-info.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,13 @@ import { SimulatorOverviewComponent } from './components/simulator-overview/simu
     LogInComponent,
     DetailsFormComponent,
     ProfessionalDetailFormComponent,
-    SimulatorOverviewComponent
+    SimulatorOverviewComponent,
+    HeaderComponent,
+    RegisterPasswordComponent,
+    SupervisorFormComponent,
+    GetAllInternsComponent,
+    SupervisorEntryComponent,
+    MoreInternInfoComponent
   ],
   imports: [
     WebcamModule,

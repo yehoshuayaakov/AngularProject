@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { internModel } from 'src/app/model/intern.model';
 import { InternserviceService } from 'src/app/services/internservice.service';
 import { ServerService } from 'src/app/services/server.service';
@@ -13,13 +14,13 @@ import { ServerService } from 'src/app/services/server.service';
 export class ProfessionalDetailFormComponent implements OnInit {
 professionalInfo : FormGroup;
 currentUser : internModel;
-  constructor(private internservice : InternserviceService, private server : ServerService) { 
+  constructor(private internservice : InternserviceService, private server : ServerService, private router : Router) { 
     this.currentUser = internservice.currentInternUser;
   }
 
   ngOnInit(): void {
     this.professionalInfo = new FormGroup({
-      institution: new FormControl(''),
+      medicalInstitution: new FormControl(''),
       department: new FormControl(''),
       residency: new FormControl(''),
       yearsOfResidency: new FormControl('')
@@ -32,11 +33,13 @@ sendForm( form : FormGroup){
   //this.currentUser.professionalInfo.medicalInstitution = form.value.instituion;
   //this.currentUser.professionalInfo.yearsOfResidency = form.value.year;  
   console.log(form.value);
-this.addProfessionalDetails()
+  console.log(form.value.medicalInstituion);
+this.addProfessionalDetails(form);
+this.router.navigate(['/registerPassword']);
 }
 
-addProfessionalDetails(){
-  this.server.addProfessionalInfo(this.professionalInfo.value).subscribe(data => {
+addProfessionalDetails(form : FormGroup){
+  this.server.addProfessionalInfo(form.value).subscribe(data => {
     console.log(data);
 })
   

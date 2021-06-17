@@ -1,25 +1,27 @@
-<div class = "container border-success">
+<div class = "container ">
+    <div>
     <h1 class = "mt-5 text-center">Welcome! Please log in.</h1>
     <form >
-        <div class="card mt-4 login" style="width: 15rem; padding: 20px;">
+        <div class="card mt-4 login mb-4" style="width: 15rem; padding: 20px;">
         <div class = "row g-2">
             <div class = "col-auto">
-                <label for = "name" class = "form-label mr-5"> User Name</label>
-                <input type = "text" class="form-control" id ="name" [(ngModel)] = "name" [ngModelOptions]="{standalone: true}" required>
+                <label for = "name" class = "form-label mr-5"> Email</label>
+                <input type = "text" class="form-control" id ="name" [(ngModel)] = "email" [ngModelOptions]="{standalone: true}" required>
             </div>
         </div>
         <br>
         <div class = "row g-2">
             <div class = 'col-auto clear' >
-                <label for = "id" class = "form-label"> ID Number</label>
-                <input type = "password" class="form-control" id ="id" [(ngModel)] = "id" [ngModelOptions]="{standalone: true}" required>
+                <label for = "id" class = "form-label"> Password</label>
+                <input type = "password" class="form-control" id ="id" [(ngModel)] = "password" [ngModelOptions]="{standalone: true}" required>
             </div>
         </div>
         <div class = "row g-2">
-            <div class = "col-auto" >
-                <button class = "btn btn-primary " (click) = "login()">Log in</button>
+            <div class = "col-auto mb-3" >
+                <button class = "btn btn-success " (click) = "login()">Log in</button>
             </div>
         </div>
     </div>
     </form>
+  </div>
 </div>
