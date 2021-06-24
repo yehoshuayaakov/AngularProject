@@ -1,4 +1,5 @@
-<div class = "container mt-5 border p-3">
+<app-header></app-header>
+<div class = "container mt-5 border p-3" style = "margin-top: 7%;">
     <p class = "text-success ml-1">Personal details</p>
     <h1 class = "mb-4">Please tell us about yourself, personally</h1>
     <form [formGroup] = "personalInfo" (ngSubmit) = "sendForm(personalInfo)" class="row g-3">
@@ -273,7 +274,7 @@
           <br>
          
         <div class="col-12 mt-3">
-            <button class = "btn btn-success px-5 mt-3">Next</button>
+            <button class = "btn border-success px-5 mt-3">Next</button>
         </div>
     </form>
 

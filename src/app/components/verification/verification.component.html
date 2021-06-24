@@ -1,6 +1,7 @@
+<app-header></app-header>
 <div class = "container mt-5 d-flex justify-content-center" >
-   <div class = "col-6 border p-4 margin mt-2 ">
-       <div class = "text-center">
+   <div class = "col-6 border p-4 margin mt-2 text-center">
+       <div class="">
     <div class = "" *ngIf = "firstTry">
         <h2>Welcome {{currentUser.Firstname}}! </h2>
         
@@ -11,9 +12,9 @@
              
         <h3 *ngIf = "!firstTry"> Incorrect code! <br> Please reenter</h3>
     </div>
-    <div class = "">
+    
         <form [formGroup] = "myCode" (ngSubmit) = "getCode(myCode)">
-            <div class="input-group  mt-5" style="margin-left: 115px;">
+            <div class="input-group  mt-5" style="margin-left: 145px;">
                 <div class = "row  ">
                     <input #first formControlName="first" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(first.value.length == 1) ? second.focus() : ''" autofocus>
                     <input #second formControlName="second" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(second.value.length == 1) ? third.focus() : ''">
@@ -26,10 +27,10 @@
                 <br>
                 <p>I did not recieve, <button (click) = "resend()" class="butn default">resend</button></p>
             <div>
-                <input class="btn btn-success ml-3" type="submit" value="CONTINUE">  
+                <input class="btn border-success" type="submit" value="CONTINUE">  
             </div>
         </form>
     </div>
    </div> 
   </div>  
-</div>
+

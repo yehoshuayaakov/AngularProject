@@ -26,10 +26,11 @@ const routes: Routes = [
   { path: 'professionalDetails', component: ProfessionalDetailFormComponent},
   { path: 'simulatorOverview', component : SimulatorOverviewComponent},
   { path: 'registerPassword', component : RegisterPasswordComponent},
-  { path: 'getAll', component : GetAllInternsComponent},
+  
   { path: 'supervisorForm', component : SupervisorFormComponent},
   { path: 'supervisorEntry', component : SupervisorEntryComponent},
-  { path: 'moreInternInfo', component : MoreInternInfoComponent} 
+  { path: 'getAll', component : GetAllInternsComponent},  
+  { path: 'moreInternInfo', component : MoreInternInfoComponent}
 ];
 
 @NgModule({

@@ -1,10 +1,15 @@
 .btn {
 width: 200px;
 margin-top: 40px;
+background-color: white;
 }
+.btn:hover{
+    background-color: rgb(0, 124, 0);
+    color:whitesmoke;
+    }
 .login{
 //margin-left: 36%;
-background-color: rgb(222, 248, 228);
+background-color: rgb(230, 230, 230);
 }
 .marg{
     margin-right: 100px;

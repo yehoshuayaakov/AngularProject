@@ -1,5 +1,6 @@
-<div class = "container mt-5 border p-3">
-    <p>Professional details</p>
+<app-header></app-header>
+<div class = "container mt-5 border p-3" style = "margin-top: 7%;">
+    <p class = "text-success">Professional details</p>
     <h1 class = "mb-4">Please tell us about yourself, professionally</h1>
     <form [formGroup] = "professionalInfo" (ngSubmit) = "sendForm(professionalInfo)" class="row g-3">
         <div class="col-md-4 mb-2">
@@ -18,9 +19,9 @@
         <div class="row mt-4">
          <label for="customRange3" class="form-label col-12 range-label">Years of residency</label>
             <input type="range" class="form-range ml-4" step="0.5" value="0" min="0" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange3" formControlName = "yearsOfResidency">
-            <output>0</output>
+            <output>5</output>
         </div>
         <div class="col-12 mt-4">
-            <button class = "btn btn-success button">DONE!</button>
+            <button class = "btn border-success button">DONE!</button>
         </div>  
     </form>

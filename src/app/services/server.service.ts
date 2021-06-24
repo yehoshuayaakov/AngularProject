@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { InternserviceService } from './internservice.service';
 import { internModel } from '../model/intern.model';
+import { Router } from '@angular/router';
+import { AuthentificationService } from './authentification.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +14,20 @@ export class ServerService {
   token : String = '';
   internRoleNumber = 99;
   supervisorRoleNumber = 199;
-  constructor(private http: HttpClient, private intern :InternserviceService) { 
+  verification: boolean = true;
+  constructor( private http: HttpClient, private intern :InternserviceService, private router : Router) { 
     this.currentUser = intern.currentInternUser;
+    /*setTimeout(function(){
+      this.token = null;
+      router.navigate(['/log-in']);
+    }, 1000 * 6  )
+    setInterval(function(){
+      if (!this.token){
+      this.verification = false;
+        
+        alert("Your session has expired. Please log in again.")
+      }
+    },1000* 61)*/
   }
 
   registerIntern(name : string, phonenumber : number, id : string, citizenshipId :  number, email : string): Observable<object>{
@@ -40,10 +54,15 @@ getAllInterns() : Observable<any>{
   return this.http.get(this.baseUrl + "api/interns/getAll");
 }
 getInternsWithToken(): Observable<any>{
+  console.log(this.token);
+  
   var string = this.token.toString();
   const headers = {
     'content-type' :  'application/json',
     'x-access-token' : string
+  }
+  if (!this.token){
+    this.router.navigate(['/log-in']);
   }
   
   return this.http.get(this.baseUrl + "api/interns/getAll", {'headers': headers});

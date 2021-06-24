@@ -20,5 +20,6 @@ currentUser : internModel;
   }
 goHome(){
 this.router.navigate(["/"]);
+this.internService.isIntern = false;
 }
 }

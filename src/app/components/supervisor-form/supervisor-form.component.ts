@@ -20,6 +20,7 @@ export class SupervisorFormComponent implements OnInit {
     email : null,
     roleNumber : 199
   }
+
   constructor(private internService : InternserviceService, private supervisorService : SupervisorService, private router : Router, private server : ServerService) { 
     this.internService.currentInternUser = this.supervisor;
   }
@@ -33,6 +34,7 @@ export class SupervisorFormComponent implements OnInit {
     //this.intern = i;
     //console.log(i);
     this.internService.changeCurrentUser(s);
+    this.internService.changeHeader();
     //console.log(s);
     
     //this.server.registerUser(s).subscribe(data=> {

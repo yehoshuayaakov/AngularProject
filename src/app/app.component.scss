@@ -2,3 +2,19 @@ img {
     height: 200px;
     width: 250px;
 }
+body{
+    min-height: 400px;
+    margin-bottom: 100px;
+}
+footer {
+    background-color: #777;
+    padding: 45px;
+    //text-align: center;
+    color: white;
+    position : fixed;
+    bottom : 0;
+    //height : 40px;
+    margin-top : 10px;
+    width: 100%;
+    background-attachment: scroll;
+  }
