@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { internModel } from 'src/app/model/intern.model';
 import { InternserviceService } from 'src/app/services/internservice.service';
@@ -14,13 +14,14 @@ import { ServerService } from 'src/app/services/server.service';
 export class ProfessionalDetailFormComponent implements OnInit {
 professionalInfo : FormGroup;
 currentUser : internModel;
+isSubmitted : boolean;
   constructor(private internservice : InternserviceService, private server : ServerService, private router : Router) { 
     this.currentUser = internservice.currentInternUser;
   }
 
   ngOnInit(): void {
     this.professionalInfo = new FormGroup({
-      medicalInstitution: new FormControl(''),
+      medicalInstitution: new FormControl('', Validators.required),
       department: new FormControl(''),
       residency: new FormControl(''),
       yearsOfResidency: new FormControl('')
@@ -28,6 +29,7 @@ currentUser : internModel;
     })
   }
 sendForm( form : FormGroup){
+  this.isSubmitted = true;
  // this.currentUser.professionalInfo.Department = form.value.department;
   //this.currentUser.professionalInfo.Residency = form.value.residency;
   //this.currentUser.professionalInfo.medicalInstitution = form.value.instituion;
@@ -44,5 +46,8 @@ addProfessionalDetails(form : FormGroup){
     //console.log(data);
 //})
   
+}
+get formControls(){
+  return this.professionalInfo['controls'];
 }
 }

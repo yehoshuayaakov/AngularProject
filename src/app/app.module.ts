@@ -26,6 +26,12 @@ import { SupervisorFormComponent } from './components/supervisor-form/supervisor
 import { GetAllInternsComponent } from './components/get-all-interns/get-all-interns.component';
 import { SupervisorEntryComponent } from './components/supervisor-entry/supervisor-entry.component';
 import { MoreInternInfoComponent } from './components/more-intern-info/more-intern-info.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+import { InternNotFoundComponent } from './components/intern-not-found/intern-not-found.component';
+import { TestResultsComponent } from './components/testing/test-results/test-results.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +54,9 @@ import { MoreInternInfoComponent } from './components/more-intern-info/more-inte
     SupervisorFormComponent,
     GetAllInternsComponent,
     SupervisorEntryComponent,
-    MoreInternInfoComponent
+    MoreInternInfoComponent,
+    InternNotFoundComponent,
+    TestResultsComponent
   ],
   imports: [
     WebcamModule,
@@ -58,6 +66,9 @@ import { MoreInternInfoComponent } from './components/more-intern-info/more-inte
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firbase)
   ],
   providers: [],
   bootstrap: [AppComponent]

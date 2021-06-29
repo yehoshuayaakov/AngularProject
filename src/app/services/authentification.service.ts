@@ -15,10 +15,17 @@ data: string;
 
   login(email: string, password : string){
     this.server.post<internModel>('auth/login', {email, password}).subscribe(data =>{
-      console.log(data);
+      console.log("test");
+    if (!data.token)
+    {
+      console.log("problem");
+      
+    }
+
       if (data && data.token){
 
         this.server.token = data.token;
+        this.internservice.currentInternUser = data;
         this.internservice.currentInternUser.name = data.name;
         this.internservice.isIntern=true;
         //this.intern = data;
@@ -30,6 +37,10 @@ data: string;
         }
       }    
       else {
+        console.log("no good");
+        this.data = "error";
+        console.log(data);
+        
         this.server.verification = false;
         this.router.navigate(['/log-in']);
 

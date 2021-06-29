@@ -7,17 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./supervisor-entry.component.scss']
 })
 export class SupervisorEntryComponent implements OnInit {
-getInterns : boolean = false;
+//getInterns : boolean = false;
   constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 getAll(){
   console.log("clicked");
-  console.log(this.getInterns);
+  //console.log(this.getInterns);
   
-  this.getInterns = true;
-  this.router.navigate(['/supervisorEntry']);
-  console.log(this.getInterns);
+  //this.getInterns = true;
+  this.router.navigate(['/getAll']);
+  //console.log(this.getInterns);
 }
 }

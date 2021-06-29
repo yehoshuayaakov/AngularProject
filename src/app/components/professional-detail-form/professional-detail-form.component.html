@@ -6,6 +6,7 @@
         <div class="col-md-4 mb-2">
           <label for="institution" class="form-label">Medical institution</label>
           <input type="text" class="form-control" id="institution" formControlName = "medicalInstitution">
+          <div class = "text-danger" *ngIf = "isSubmitted && formControls.medicalInstitution.errors?.required">* This field is required</div>
         </div>
         <div class="col-md-4 mb-2">
           <label for="Residency" class="form-label">Residency</label>

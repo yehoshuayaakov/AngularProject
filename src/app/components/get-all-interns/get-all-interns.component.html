@@ -1,25 +1,28 @@
-
+<div>
+    <app-header></app-header>
+</div>
 <div class = "container">
     <div class = "mt-5 ">
         <div *ngIf = "headerForAll">
             <div class="row">
               
-                 
-                    <div class="input-group mb-3 ">
+               
+
+                <div class = "col-7 ml-5  ">
+                        <h1 > All Interns </h1>
+                </div>  
+                <div class = "col-4 mt-2 ">
+                    <div class="input-group mb-3  " >
                         <input type ="text" class="form-control" placeholder="Search by name..." aria-label="Search by name..."  [(ngModel)]="searchedIntern" aria-describedby="button-addon2">
                         <div class="input-group-append">
                           <button class="btn border-success" type="button" id="button-addon2" (click)="findIntern()">Search</button>
                         </div>
-                      </div>  
-                      <div class = "col-auto ml-5 mt-4 move">
-                        <h1 > All Interns </h1>
-                    </div>  
-                    
-                
+                      </div> 
+                </div>
             </div>
         </div>
         <div *ngIf = "!headerForAll">
-            
+          
             <div class="row mt-5">
                 <div>
                     <h1 class = "col ml-5 mt-4 move"> Your Intern </h1>
@@ -27,13 +30,25 @@
                 <div class = "d-flex justify-content-end">
                   
                     <div>
-                        <button class = "btn border-success col justify-content-end" (click)="goBack()" style = "margin-left: 95px; margin-top: 35px;">Go back to all interns</button>
+                        <button class = "btn border-success col justify-content-end" (click)="goBack()" style = "margin-left: 95px; margin-top: 35px;" routerLink = '/getAll'>Go back to all interns</button>
                     </div>
                 </div>
             </div>
+          
+          <div *ngIf = 'notFound'>
+              <h4 class = "text-warning mt-4"> No matches found. <br> Please enter a differnt name <br>or click above to go back to all interns.</h4>
+              <div class = "col-4 mt-4 ">
+                <div class="input-group mb-3  " >
+                    <input type ="text" class="form-control" placeholder="Search by name..." aria-label="Search by name..."  [(ngModel)]="searchedIntern" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                      <button class="btn border-success" type="button" id="button-addon2" (click)="findIntern()">Search</button>
+                    </div>
+                  </div> 
+            </div>
+          </div>
         </div>
 
-
+        <div *ngIf = '!notFound'>
         <table class="table table-bordered border-primary mt-3">
             <thead>
                 <tr>
@@ -60,6 +75,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
                 <div *ngIf = 'showDetails'>
                     <table class="table-bordered">
                         <thead>

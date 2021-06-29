@@ -12,6 +12,7 @@ import { ServerService } from 'src/app/services/server.service';
 })
 export class GetAllInternsComponent implements OnInit {
 interns : any [] = [];
+selectedInterns :any [] = [];
 supervisors : any [] = [];
 showInterns : boolean = false;
 showDetails : boolean = false;
@@ -19,10 +20,25 @@ chosenIntern : internModel;
 name: string;
 headerForAll: boolean;
 searchedIntern: string;
+notFound : boolean = false;
 token;
 @Input() intern : internModel;
   constructor(private router : Router, private server : ServerService, private internService : InternserviceService) {
     this.token = server.token;
+  
+      
+      
+      
+      //this.interns = internList ;
+      this.showInterns = true;
+      this.headerForAll=true;
+      //internService.internList = this.interns;
+      console.log(this.server.token);
+          
+  
+   }
+
+  ngOnInit(): void {
     this.server.getInternsWithToken().subscribe(internList=> {
       console.log("getting List");
       console.log(internList);
@@ -34,21 +50,11 @@ token;
           this.supervisors.push(item);
         }
       });
-      console.log("internlist");
+  })
+  this.internService.internList = this.interns;
+  console.log("internlist");
       console.log(this.interns);
-      
-      
-      //this.interns = internList ;
-      this.showInterns = true;
-      this.headerForAll=true;
-      internService.internList = this.interns;
-      console.log(this.server.token);
-          })
-  
-   }
-
-  ngOnInit(): void {
-  }
+}
 /*getAll(){
   this.server.getAllInterns().subscribe(internList=> {
     console.log("getting List");
@@ -66,13 +72,33 @@ showAllDetails(email : string){
   this.router.navigate(['/moreInternInfo']);
 }
 findIntern(){
-  this.interns = this.interns.filter(intern=> intern.name === this.searchedIntern);
+  console.log("findintern function");
+  
+  this.interns = this.interns.filter(intern=> 
+     
+    intern.name === this.searchedIntern);
+if (this.interns.length==0){
+  console.log("nothing in list");
+  this.router.navigate(['/notFound']);
+  this.notFound = true;
+
+
+}
+  else {
+    console.log("found intern");
+    
+    //this.headerForAll = true;
+    console.log(this.interns);
+    this.headerForAll = false;
+    this.notFound = false;
+  }
+
   console.log(this.interns);
   this.headerForAll = false;
   
 }
 goBack(){
-  this.server.getAllInterns().subscribe(internList=> {
+  this.server.getInternsWithToken().subscribe(internList=> {
     console.log("getting List");
     console.log(internList);
     internList.forEach(item => {
@@ -86,5 +112,18 @@ goBack(){
     this.internService.internList = this.interns;
     this.headerForAll = true;
         })
+//this.router.navigate(['/getAll']);
 }
+tryAgain(){
+  this.server.getInternsWithToken().subscribe(internList=> {
+    console.log("getting List");
+    console.log(internList);
+    internList.forEach(item => {
+      if (item.roleNumber < 100){
+        this.interns.push(item);
+      }
+    });
+  })
+  this.findIntern();
+  }
 }

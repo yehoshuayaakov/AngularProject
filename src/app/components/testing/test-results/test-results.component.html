@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class = "row">
+ 
+    <section class = "col-3" style = "height: 650px; background-color: antiquewhite;">
+        <div class = "text-center border ml-3" style = "margin-top: 180px;">
+            
+            <h3>{{currentUser.name}}</h3>
+            <p class = mt-5> Medical Institution</p>
+            <h4 >{{currentUser.professionalDetails.medicalInstitution}}</h4>
+            <p class = mt-5>Years of Residency</p>
+            <h4>{{currentUser.professionalDetails.yearsOfResidency}}</h4>
+        </div>    
+</section>
+    <article class = col-5 style = "height: 650px; background-color: beige;">
+        <p>test-results works!</p>
+        <label>Add File</label>
+        <input type="file" (change) = "upload($event)" [(ngModel)]= "file">
+        <button class = "button" (click)= "uploadFile()">upload</button>
+        </article>
+        <article class = "col-4 boreder" style= "height: 650px;">
+            
+        </article>
+</div>  
+    
+
