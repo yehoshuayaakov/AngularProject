@@ -32,6 +32,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { InternNotFoundComponent } from './components/intern-not-found/intern-not-found.component';
 import { TestResultsComponent } from './components/testing/test-results/test-results.component';
+import { UploadTestComponent } from './supervisors/upload-test/upload-test.component';
+import { GradeTestsComponent } from './supervisors/grade-tests/grade-tests.component';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { TestResultsComponent } from './components/testing/test-results/test-res
     SupervisorEntryComponent,
     MoreInternInfoComponent,
     InternNotFoundComponent,
-    TestResultsComponent
+    TestResultsComponent,
+    UploadTestComponent,
+    GradeTestsComponent,
+  
   ],
   imports: [
     WebcamModule,
@@ -65,6 +71,7 @@ import { TestResultsComponent } from './components/testing/test-results/test-res
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    ReactiveFormsModule ,
     HttpClientModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,

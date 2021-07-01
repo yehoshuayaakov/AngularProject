@@ -13,11 +13,11 @@ export interface internModel {
     password? : string;
    
     personalDetails? : {
-    age?: number,
-    country?: string,
-    city?: string,
-    graduationYear?: number,
-    academicInstitution?: string
+        age?: number,
+        country?: string,
+        city?: string,
+        graduationYear?: number,
+        academicInstitution?: string
     }, 
 
     professionalDetails? : {

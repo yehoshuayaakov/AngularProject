@@ -16,6 +16,7 @@ import { TakePictureComponent } from './components/take-picture/take-picture.com
 import { TestResultsComponent } from './components/testing/test-results/test-results.component';
 import { VerificationComponent } from './components/verification/verification.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { UploadTestComponent } from './supervisors/upload-test/upload-test.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent},
@@ -34,7 +35,8 @@ const routes: Routes = [
   { path: 'getAll', component : GetAllInternsComponent},  
   { path: 'moreInternInfo', component : MoreInternInfoComponent},
   { path: 'notFound', component : InternNotFoundComponent },
-  { path: 'internTests', component : TestResultsComponent} 
+  { path: 'internTests', component : TestResultsComponent},
+  { path: 'uploadTests', component : UploadTestComponent} 
 ];
 
 @NgModule({

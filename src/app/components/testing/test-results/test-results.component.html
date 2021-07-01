@@ -1,24 +1,103 @@
 <app-header></app-header>
-<div class = "row">
+<div class = "row mt-2">
  
-    <section class = "col-3" style = "height: 650px; background-color: antiquewhite;">
-        <div class = "text-center border ml-3" style = "margin-top: 180px;">
+    <section class = "col-2" style = "height: 690px; background-color: antiquewhite;">
+        <div class = "text-center  ml-3" style = "margin-top: 180px;">
             
-            <h3>{{currentUser.name}}</h3>
-            <p class = mt-5> Medical Institution</p>
-            <h4 >{{currentUser.professionalDetails.medicalInstitution}}</h4>
-            <p class = mt-5>Years of Residency</p>
-            <h4>{{currentUser.professionalDetails.yearsOfResidency}}</h4>
+            <h3 class = mt-4>{{currentUser.name}}</h3>
+            <p class = mt-2> Medical Institution</p>
+            <h4 class = "text-success">{{currentUser.professionalDetails.medicalInstitution}}</h4>
+            <p class = mt-2>Years of Residency</p>
+            <h4 class = "text-success">{{currentUser.professionalDetails.yearsOfResidency}}</h4>
+            <h3 class = "mt-5">Latest Test Score</h3>
+            <h4 class = "text-warning">98</h4>
+            <h3 class = "mt-3">Test score average</h3>
+            <h4 class = "text-success">89</h4>
         </div>    
 </section>
-    <article class = col-5 style = "height: 650px; background-color: beige;">
-        <p>test-results works!</p>
-        <label>Add File</label>
-        <input type="file" (change) = "upload($event)" [(ngModel)]= "file">
-        <button class = "button" (click)= "uploadFile()">upload</button>
-        </article>
-        <article class = "col-4 boreder" style= "height: 650px;">
+    <article class = col-6 style = "height: 690px; background-color: rgb(243, 243, 239);">
+        <table class="table mx-3">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th colspan="2">Test Name</th>
+                <th scope="col">Score</th>
+                <th scope="col">Go to test</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td colspan="2">Test1</td>
+                <td>no score yet</td>
+                <td>
+                    <button class= "btn border-success">take test</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Test2</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Test3</td>
+                <td>@twitter</td>
+              </tr>
+           
+            <tr>
+                <th scope="row">4</th>
+                <td>Test4</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Test5</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td colspan="2">Test6</td>
+                <td>@twitter</td>
+              </tr>
             
+            <tr>
+                <th scope="row">7</th>
+                <td>Test7</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>Test8</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td colspan="2">Test9</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td colspan="2">Test10</td>
+                <td>no score yet</td>
+                <td>
+                    <button class= "btn border-success">take test</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      
+    </article>
+    
+        <article class = "col-4 border " style= "height: 690px; background-color: ghostwhite;">
+            <h3 class = "text-center"> Latest Test Results</h3>
+            <div class = "card  " style = "height: 270px; width: 400px; margin-left: 16%;"></div>
+            <div class = "card mr-2 mt-3" style = "height: 270px; width: 400px; margin-left: 16%;"></div>
         </article>
 </div>  
     

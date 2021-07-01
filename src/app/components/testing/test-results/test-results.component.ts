@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
 import { internModel } from 'src/app/model/intern.model';
 import { InternserviceService } from 'src/app/services/internservice.service';
 
@@ -13,6 +14,8 @@ export class TestResultsComponent implements OnInit {
 file : File;
 path: string;
 currentUser: internModel;
+uploadProgress : Observable<number>;
+task: AngularFireUploadTask;
 constructor(private internService : InternserviceService, private fb : AngularFireDatabase, private as : AngularFireStorage) { 
   this.currentUser = this.internService.currentInternUser;
 console.log(this.currentUser);
@@ -26,6 +29,8 @@ upload($event){
 this.path = $event.target.files[0];
 }
 uploadFile(){
-this.as.upload('/files'+Math.random()+this.path, this.path)
+  
+this.task = this.as.upload('/files'+Math.random()+this.path, this.path);
+this.uploadProgress = this.task.percentageChanges();
 }
 }

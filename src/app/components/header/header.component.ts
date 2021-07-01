@@ -22,4 +22,8 @@ goHome(){
 this.router.navigate(["/"]);
 this.internService.isIntern = false;
 }
+logOut(){
+  this.router.navigate(['/log-in']);
+  this.internService.isIntern = false;
+}
 }

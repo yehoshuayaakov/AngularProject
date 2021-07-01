@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TestService } from 'src/app/services/test.service';
 
 @Component({
   selector: 'app-supervisor-entry',
@@ -8,9 +9,10 @@ import { Router } from '@angular/router';
 })
 export class SupervisorEntryComponent implements OnInit {
 //getInterns : boolean = false;
-  constructor(private router : Router) { }
+  constructor(private router : Router, private testService : TestService) { }
 
   ngOnInit(): void {
+    this.testService.getTestDetails();
   }
 getAll(){
   console.log("clicked");
@@ -19,5 +21,10 @@ getAll(){
   //this.getInterns = true;
   this.router.navigate(['/getAll']);
   //console.log(this.getInterns);
+}
+goToUpload(){
+  console.log("going to upload");
+  
+  this.router.navigate(['/uploadTests']);
 }
 }
