@@ -1,15 +1,15 @@
-<div class = "container mt-5">
-    <p>Personal details</p>
+<app-header></app-header>
+<div class = "container mt-5 border p-3" style = "margin-top: 7%;">
+    <p class = "text-success ml-1">Personal details</p>
     <h1 class = "mb-4">Please tell us about yourself, personally</h1>
-    <form class="row g-3">
+    <form [formGroup] = "personalInfo" (ngSubmit) = "sendForm(personalInfo)" class="row g-3">
         <div class="col-md-4 mb-2">
           <label for="age" class="form-label">Age</label>
-          <input type="text" class="form-control" id="age">
+          <input id="age" formControlName="age" type="text" class="form-control" >
         </div>
         <div class="col-md-4 mb-2">
           <label for="country" class="form-label">Country</label>
-          
-          <select id="country" name="country" class="form-control">
+          <select id="country" formControlName="country" name="country" class="form-control">
             <option selected>Country</option>
             <option value="Afghanistan">Afghanistan</option>
             <option value="Åland Islands">Åland Islands</option>
@@ -255,24 +255,25 @@
             <option value="Yemen">Yemen</option>
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
-        </select>
-        </div>
+            <option>other</option>
+        </select>      
+    </div>
         <div class="col-md-4 mb-2">
             <label for="city" class="form-label">City</label>
-            <input type="password" class="form-control" id="city">
+            <input  type="text" class="form-control" id="city" formControlName="city">
         </div>
         <div class="col-md-4">
             <label for="graduationYear" class="form-label">Graduation year</label>
-            <input type="text" class="form-control" id="graduationYear">
+            <input  type="text" class="form-control" id="graduationYear" formControlName="graduationYear">
         </div>
         <div class="col-md-4">
             <label for="institution" class="form-label">Academic institution</label>
-            <input type="text" class="form-control range" id="institution">
+            <input  type="text" class="form-control range" id="institution" formControlName="academicInstitution">
         </div>
           <br>
-          
+         
         <div class="col-12 mt-3">
-            <button class = "btn btn-success " routerLink = "/professionalDetails">Next</button>
+            <button class = "btn border-success px-5 mt-3">Next</button>
         </div>
     </form>
 

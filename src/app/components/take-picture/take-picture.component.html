@@ -1,4 +1,5 @@
-<div class = "container">
+<app-header></app-header>
+<div class = "container mt-4">
     <div class = "row">
         <div class = "col">
             <h1>Great!</h1>
@@ -11,15 +12,15 @@
                     (imageCapture)="handleImage($event)">
          </webcam>
          
-        <button class="actionBtn btn btn-success" (click)="triggerSnapshot();">
+        <button class="actionBtn btn border-success" (click)="triggerSnapshot();">
             Click Here and take the Shot</button>
     </div>  
         <div class="snapshot" *ngIf="webcamImage">
           <h2>Here is your image!</h2>
           <img [src]="webcamImage.imageAsDataUrl"/>
-          <button class="actionBtn btn btn-success mt-5" (click)="retakeSnapshot();">
+          <button class="actionBtn btn border-success mt-3" (click)="retakeSnapshot();">
             Click here to retake the picture</button>
-            <button class="actionBtn btn btn-success mt-5 ml-5" routerLink = "/startquestionare" (click) = "changeHeader()">
+            <button class="actionBtn btn border-success mt-3 ml-5" routerLink = "/startquestionare" (click) = "changeHeader()">
                 Click here to continue</button>
         </div>
         

@@ -1,19 +1,29 @@
-<div class = "container">
-    <h1 class = "mt-5">Welcome! Please log in.</h1>
-    <form>
+<app-header></app-header>
+<div class = "container d-flex justify-content-center  mt-5">
+    <div class = "border p-5" style = "">
+    <h1 *ngIf = "verification; else timeoutMessage" class = "mt-2 text-center">Welcome! <br> Please log in.</h1>
+    <ng-template #timeoutMessage><p class ="text-danger" >* your session has expired please re-sign in</p></ng-template>
+    <form >
+        <div class="card mt-4 login mb-4" style="width: 15rem; padding: 20px; ">
         <div class = "row g-2">
             <div class = "col-auto">
-                <label for = "name" class = "form-label mr-5"> User Name</label>
-                <input type = "text" class="form-control" id ="name">
+                <label for = "name" class = "form-label"> Email</label>
+                <input type = "text" class="form-control" id ="name" [(ngModel)] = "email" [ngModelOptions]="{standalone: true}" required>
             </div>
         </div>
         <br>
         <div class = "row g-2">
             <div class = 'col-auto clear' >
-                <label for = "password" class = "form-label"> Password</label>
-                <input type = "text" class="form-control" id ="password">
+                <label for = "id" class = "form-label"> Password</label>
+                <input type = "password" class="form-control" id ="id" [(ngModel)] = "password" [ngModelOptions]="{standalone: true}" required>
             </div>
         </div>
-        <button class = "btn btn-primary mt-4" >Log in</button>
+        <div class = "row g-2">
+            <div class = "col-auto mb-3" >
+                <button class = "btn border-success " (click) = "login()">Log in</button>
+            </div>
+        </div>
+    </div>
     </form>
+  </div>
 </div>

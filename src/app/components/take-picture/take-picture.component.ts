@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Router } from '@angular/router';
 import { WebcamImage} from 'ngx-webcam';
 import { Subject, Observable} from 'rxjs';
 import { InternserviceService } from 'src/app/services/internservice.service';
@@ -27,7 +29,7 @@ export class TakePictureComponent implements OnInit {
   public get triggerObservable(): Observable<void> {
    return this.trigger.asObservable();
   }
-  constructor(private internService : InternserviceService) { 
+  constructor(private internService : InternserviceService, private router : Router, private as : AngularFireStorage) { 
     internService.currentInternUser.image = this.webcamImage;
   }
 
@@ -35,5 +37,8 @@ export class TakePictureComponent implements OnInit {
   }
 changeHeader(){
   this.internService.changeHeader();
+  this.router.navigate(['/startquestionare']);
+  this.as.upload('/images/'+ this.internService.currentInternUser.name + Date.now(), this.webcamImage.imageAsDataUrl)
+
 }
 }

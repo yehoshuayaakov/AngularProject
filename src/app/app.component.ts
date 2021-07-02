@@ -12,10 +12,14 @@ export class AppComponent {
   isIntern : boolean = false;
   currentUser: internModel;
   constructor(private internservice: InternserviceService){
+    
    
-   this.currentUser = internservice.currentInternUser;
   }
   ngOnInit(): void {
+    setInterval(()=>{
+      this.currentUser = this.internservice.currentInternUser;
     this.isIntern = this.internservice.isIntern;
-  }
+    },1000)
+
+      }
 }

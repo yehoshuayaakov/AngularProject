@@ -1,0 +1,111 @@
+<app-header></app-header>
+<div class = "container">
+    <div class = "mt-5 ">
+   
+            <div class="row">
+                <div>
+                    <h1 class = "col ml-5 mt-4 move"> {{intern.name}}'s Profile </h1>
+                </div>
+             
+                <div class = "d-flex justify-content-end col mt-4" style = "height: 40px;">
+                    <button class = " btn border-success "  routerLink = "/getAll">Go back to intern list</button>
+                </div>
+        </div>
+    </div>
+        <table class="table table-bordered border-primary mt-3">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Name</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Phonenumber</th>
+                    <th scope="col">Citizenship Id</th>
+                    <th scope="col">email</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td>{{intern.name}}</td>
+                    <td>{{intern.Id}}</td>
+                    <td>{{intern.phonenumber}}</td>
+                    <td>{{intern.citizenshipId}}</td>
+                    <td>{{intern.email}}</td>
+                   
+                </tr>
+            </tbody>
+        </table>
+<div class = "row">
+    <table class="table table-bordered col-auto">
+        <thead>
+            <tr>
+                
+                <th scope="col">
+                    Personal Details: 
+                </th>
+            </tr> 
+            
+        </thead>
+        <tbody>
+           
+            <tr>
+                <th scope="row">age</th>
+                <td>{{intern.personalDetails.age}}</td> 
+            </tr>
+            <tr>
+                <th scope="row">Country</th>
+            <td>{{intern.personalDetails.country}}</td>
+            </tr>
+            <tr>
+                <th scope="row">City</th>
+            <td>{{intern.personalDetails.city}}</td> 
+            </tr>
+            <tr>
+                <th scope="row">Year of Graduation</th>
+                <td>{{intern.personalDetails.graduationYear}}</td> 
+            </tr>
+            <tr>
+                <th scope="row">Institution</th>
+                <td>{{intern.personalDetails.academicInstitution}}</td>
+            </tr>
+                
+        </tbody>
+    </table>
+    <table class="table table-bordered col-auto">
+        <thead>
+            <tr>
+                
+                <th scope="col ">
+                    Professional Details:  
+                    
+                </th>
+            </tr> 
+            
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Institution</th>
+                <td>{{intern.professionalDetails.medicalInstitution}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Department</th>
+                <td>{{intern.professionalDetails.department}}</td> 
+            </tr>
+            <tr>
+                <th scope="row">Residency</th>
+                <td>{{intern.professionalDetails.residency}}</td>
+            </tr>
+        
+            <tr>
+                <th scope="row">Years of residency</th>
+                <td>{{intern.professionalDetails.yearsOfResidency}}</td> 
+            </tr>
+         
+                
+        </tbody>
+    </table>
+  </div>
+    <button class = "btn border-success m-3">Get test results</button>
+</div>
+

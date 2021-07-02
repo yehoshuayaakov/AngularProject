@@ -11,6 +11,7 @@ export class StartquestionareComponent implements OnInit {
 currentUser: internModel;
   constructor(internservice: InternserviceService) {
     this.currentUser = internservice.currentInternUser;
+    this.currentUser.Firstname = internservice.getFirstName();
    }
 
   ngOnInit(): void {
