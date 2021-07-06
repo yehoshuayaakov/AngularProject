@@ -2,7 +2,7 @@ import { WebcamImage } from "ngx-webcam";
 
 export interface internModel {
     name: string;
-    Id: string;
+    id: string;
     phonenumber: number;
     citizenshipId: number; 
     email: string; 

@@ -7,7 +7,7 @@
         <h5>Add File : </h5>
     </label>
     <br>
-        <input type="file"  (change) = "upload($event)" formControlName= 'file'>
+        <input class = "btn border-success mt-3" type="file"  (change) = "upload($event)" formControlName= 'file'>
         <input type = "text" class = "form-control col-3 mt-3" placeholder="Test name" formControlName= 'testName'>
         <input type = "text" class = "form-control col-3 mt-3" placeholder="Test Id" formControlName= 'testId'>
         <button class = "btn border-success mt-3" >upload</button>
@@ -17,26 +17,36 @@
     </div>
   </form>
     <h3 *ngIf = 'uploaded'>Your test has been uploaded</h3>
-    <button class = "btn border-success mt-3" (click)="show()">show test</button>
+
+    <button *ngIf = "!showTests" class = "btn border-success mt-3" (click)="show()">show tests</button>
+    <button *ngIf = "showTests" class = "btn border-success mt-3" (click)="show()">hide tests</button>
     <table *ngIf = "showTests" class="table mt-4">
+     
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Test Name</th>
             <th scope="col">Test Id</th>
             <th scope="col">Date entered</th>
-            <th scope="col"></th>
+            <th scope="col">See test</th>
+            <th></th>
           </tr>
         </thead>
         <tbody >
             
-          <tr  >
-            <th scope="row">1</th>
-            <td>{{uploadingTest.name}}</td>
-            <td>{{uploadingTest.id}}</td>
-            <td>{{uploadingTest.date}}</td>
+          <tr *ngFor = "let test of tests; let i = index" >
+            <th scope="row">{{i+1}}</th>
+            <td>{{test.name}}</td>
+            <td>{{test.id}}</td>
+            <td>{{test.date}}</td>
+            <td>  
+              <a href={{test.testUrl}}>Go to test</a>            
+            </td>
+            <td>
+              <button class = "btn border-success">delete test</button>
+            </td>
           </tr>
-       
+        
       </table>
 
 </div>

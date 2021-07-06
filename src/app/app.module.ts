@@ -34,6 +34,7 @@ import { InternNotFoundComponent } from './components/intern-not-found/intern-no
 import { TestResultsComponent } from './components/testing/test-results/test-results.component';
 import { UploadTestComponent } from './supervisors/upload-test/upload-test.component';
 import { GradeTestsComponent } from './supervisors/grade-tests/grade-tests.component';
+import { DragdropDirective } from './dragdrop.directive';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { GradeTestsComponent } from './supervisors/grade-tests/grade-tests.compo
     TestResultsComponent,
     UploadTestComponent,
     GradeTestsComponent,
+    DragdropDirective,
   
   ],
   imports: [

@@ -21,18 +21,22 @@ export class UploadTestComponent implements OnInit {
   currentUser: internModel;
   uploadProgress : Observable<number>;
   task: AngularFireUploadTask;
+  testUrl : string;
   
   uploadingTest : test = {
     name: null,
     id : null,
     date : null,
-    file : null
+    url : null,
+    completedCode : null,
   };
   tests : test[]= [];
   testForm : FormGroup ;
   constructor(private testService : TestService, private internService : InternserviceService, private fb : AngularFireDatabase, private as : AngularFireStorage) { }
 
   ngOnInit(): void {
+    this.currentUser = this.internService.currentInternUser;
+    this.testService.completedCode =0;
     this.testForm = new FormGroup({
       testName : new FormControl(''),
       testId: new FormControl(''),
@@ -52,18 +56,29 @@ export class UploadTestComponent implements OnInit {
       var date = new Date().toLocaleString();
     this.uploadingTest.date = date;
     this.uploadingTest.name = form.value.testName;
+    console.log(form.value.testName + " upload function");
+    
     this.uploadingTest.id = form.value.testId;
-    this.uploadingTest.file = form.value.file;
-    this.task = this.as.upload('/tests/'+this.uploadingTest.name , this.path);
+    this.uploadingTest.url = form.value.file;
+    var filePath = '/tests/'+this.uploadingTest.name;
+    this.task = this.as.upload( filePath, this.path);
     this.uploadProgress = this.task.percentageChanges();
-    this.tests.push(this.uploadingTest);
+    const fileref = this.as.ref(filePath);
+    //this.tests.push(this.uploadingTest);
     console.log(this.uploadingTest);
      this.task.snapshotChanges().pipe(finalize(()=>{
+       fileref.getDownloadURL().subscribe((url)=>{
+       console.log(url)
+       this.testUrl = (url);
+       console.log(this.testUrl);
+       this.testService.createTest(form.value.testName, form.value.testId, date, url, this.testService.completedCode, this.currentUser.id).subscribe();
+       });
+      
      this.uploaded = true;
-     this.testService.insertTestDetails(this.uploadingTest)})).subscribe();
-    
-
-    
+     //this.testService.insertTestDetails(this.uploadingTest)
+    })).subscribe();
+      //this.resetForm();
+   
     }
     //this.uploadingTest.name = null;
     //this.uploadingTest.id = null;
@@ -71,12 +86,40 @@ export class UploadTestComponent implements OnInit {
     
     
 show(){
-this.showTests = true;
+this.uploaded = false;
+this.showTests = !this.showTests;
+if(this.showTests){
+this.testService.getAllTests().subscribe(tests => 
+ //this.tests.forEach(test =>{
+//var oldTest = test;
+  
+  tests.forEach(test => { 
+    if (test.completedCode == 0 ){
+      this.tests.push(test);
+    }
+  })
+  //})
+  );
+  console.log(this.tests);
+  
+  //this.tests = tests);
+  this.resetForm();
 }
+}
+resetForm(){
+  this.uploaded = false;
+  this.testForm.reset();
+  
+}
+
   }
 export interface test  {
 name : string;
 id : number;
 date : string;
-file :File;
+url : string;
+completedCode : number;
+internId? : number;
+supervisorId? : number;
+garderId? : number;
 }

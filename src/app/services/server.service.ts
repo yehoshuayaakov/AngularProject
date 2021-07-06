@@ -35,7 +35,7 @@ export class ServerService {
   }
   addPersonalInfo(Info : object) : Observable<any>{
     console.log(Info);
-    return this.http.put(this.baseUrl + "api/interns/" + this.currentUser.Id, {personalDetails : Info})
+    return this.http.put(this.baseUrl + "api/interns/" + this.currentUser.id, {personalDetails : Info})
     
     
   }
@@ -43,9 +43,9 @@ export class ServerService {
     return this.http.post<T>(this.baseUrl + path, data)
   }
   addProfessionalInfo(Info : object) : Observable<any>{
-    console.log(this.currentUser.Id);
+    console.log(this.currentUser.id);
     
-    return this.http.put(this.baseUrl + "api/interns/" + this.currentUser.Id, {  professionalDetails: Info })
+    return this.http.put(this.baseUrl + "api/interns/" + this.currentUser.id, {  professionalDetails: Info })
 }
 registerSupervisor(name : string, phonenumber : number, id : string, citizenshipId :  number, email : string): Observable<object>{
   return this.http.post( this.baseUrl + "api/supervisors/create", {name: name, phonenumber: phonenumber, Id : id, citizenshipId : citizenshipId, email : email, roleNumber: this.supervisorRoleNumber})

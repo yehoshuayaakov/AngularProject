@@ -23,6 +23,7 @@ data: string;
     }
 
       if (data && data.token){
+console.log(data);
 
         this.server.token = data.token;
         this.internservice.currentInternUser = data;

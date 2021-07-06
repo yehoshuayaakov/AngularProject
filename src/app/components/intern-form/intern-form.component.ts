@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class InternFormComponent implements OnInit {
 intern: internModel = {
   name: null,
-  Id: null,
+  id: null,
   phonenumber: null,
   citizenshipId: null,
   email : null,

@@ -15,7 +15,7 @@ export class SupervisorFormComponent implements OnInit {
   supervisor: internModel = {
     name: null,
     phonenumber: null,
-    Id: null,
+    id: null,
     citizenshipId: null,
     email : null,
     roleNumber : 199

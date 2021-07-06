@@ -12,7 +12,7 @@ export class SupervisorEntryComponent implements OnInit {
   constructor(private router : Router, private testService : TestService) { }
 
   ngOnInit(): void {
-    this.testService.getTestDetails();
+    //this.testService.getTestDetails();
   }
 getAll(){
   console.log("clicked");
