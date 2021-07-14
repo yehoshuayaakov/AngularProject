@@ -1,28 +1,60 @@
+
 <app-header></app-header>
-<div class = "row mt-2">
+<div class = "row ">
  
     <section class = "col-2" style = "height: 90%; ">
         <div class = "text-center  ml-3" style = "margin-top: 180px;">
             
             <h3 class = mt-4>{{currentUser.name}}</h3>
-            <p class = mt-2> Medical Institution</p>
+            <p class = mt-5> Medical Institution</p>
             <h4 class = "text-success">{{currentUser.professionalDetails.medicalInstitution}}</h4>
-            <p class = mt-2>Years of Residency</p>
+            <p class = mt-4>Years of Residency</p>
             <h4 class = "text-success">{{currentUser.professionalDetails.yearsOfResidency}}</h4>
             <h3 class = "mt-5">Latest Test Score</h3>
-            <h4 class = "text-warning">98</h4>
+            <h4 class = "text-warning">{{latestGrade}}</h4>
             <h3 class = "mt-3">Test score average</h3>
-            <h4 class = "text-success">89</h4>
+            <h4 class = "text-success">{{testAverage}}</h4>
         </div>    
       </section>
-    <article class = col-6 style = "height: 90%; background-color: rgb(243, 243, 239);">
-        <table class="table mx-3">
+    <article class = col-6 style = "height: 90%; border-left: black;">
+      <h2 class = "mt-5">Graded Tests</h2>
+      <table class="table  mx-3 ">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope = "col">Test Name</th>
+            <th scope = "col">Test Id#</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Get test</th>
+            
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor = "let test of gradedTests; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td >{{test.name}}</td>
+            <td >{{test.id}}</td>
+            <td>{{test.grade}}</td>
+            <td>
+              <a href={{test.testUrl}} ><button class = "btn border-success">get test</button></a>  
+                
+            </td>
+          
+          </tr>
+          
+        </tbody>
+      </table> 
+      <div *ngIf = "gradedTests.length == 0"><h5>No tests have been graded yet</h5></div>
+
+      <h2 class = "mt-5">Tests To Be Taken</h2>
+      <table class="table  mx-3 ">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope = "col">Test Name</th>
                 <th scope = "col">Test Id#</th>
-                <th scope="col">Score</th>
+                
                 <th scope="col">Get test</th>
                 <th scope="col">Submit test</th>
               </tr>
@@ -32,15 +64,16 @@
                 <th scope="row">{{i+1}}</th>
                 <td >{{test.name}}</td>
                 <td >{{test.id}}</td>
-                <td>no score yet</td>
+                
                 <td>
                   <a href={{test.testUrl}} ><button class = "btn border-success">get test</button></a>  
                     
                 </td>
                 <td>
-                  <div class = 'drop-box' appDragdrop (click)= "fileinput.click()" (fileDropped)= "upload($event, test)">
+                  <div class = 'drop-box ' appDragdrop (click)= "fileinput.click()" (fileDropped)= "upload($event, test)">
                     <input  type="file" hidden #fileinput (change) = "upload($event)">
-                </div>
+                    <img  src = "../../../../assets/upload2.png" style = "height: 35px; width: 35px; margin-left: 42px; margin-top: 2px" >
+                  </div>
                     
                 </td>
               </tr>
@@ -50,7 +83,7 @@
       
     </article>
     
-        <article class = "col-4 border p-2">
+        <article class = "col-4 ">
             <h3 class = "text-center"> Latest Test Results</h3>
             <div class = "card mt-3 ml-5 "  style = "height: 200px; width: 300px"></div>
             <div class = "card ml-5 mt-3 " style = "height: 200px; width: 300px"></div>

@@ -4,7 +4,7 @@ article {
     width: 70%;
     //background-color: #f1f1f1;
     //height: 90%; /* only for demonstration, should be removed */
-  }
+}
   section{
     height: 100%;
   }
@@ -21,11 +21,11 @@ article {
     }
   .drop-box{
     border: 1px dashed;
-    width: 150px;
+    width: 120px;
     height: 40px;
     border-radius: 10px;
     border-color:  rgb(0, 124, 0) ;
-    background-image: url("../../../../assets/downloadtest.png");
+    
     background-repeat: no-repeat;
     background-size: 120px 30px;
     background-position: center;
@@ -33,4 +33,9 @@ article {
   .drop-box:hover{
     background-color: darkgray;
     cursor: pointer;
+  }
+  table{     
+     border-bottom: black;
+
+    border-right: darkgray;
   }

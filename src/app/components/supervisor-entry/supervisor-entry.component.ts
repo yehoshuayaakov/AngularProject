@@ -27,4 +27,7 @@ goToUpload(){
   
   this.router.navigate(['/uploadTests']);
 }
+grade(){
+  this.router.navigate(['/gradeTests']);
+}
 }

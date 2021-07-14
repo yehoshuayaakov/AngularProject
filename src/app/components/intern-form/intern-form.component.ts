@@ -29,7 +29,7 @@ currentUser : internModel;
   }
 
   createIntern(i: internModel){
-    console.log("hello");
+    console.log(i.id);
     this.internService.isIntern = true;
     this.intern = i;
     console.log(i);

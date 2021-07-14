@@ -30,6 +30,8 @@ console.log(data);
         this.internservice.currentInternUser.name = data.name;
         this.internservice.isIntern=true;
         //this.intern = data;
+        console.log(this.internservice.currentInternUser);
+        
         if (data.roleNumber && data.roleNumber > 100){
           this.router.navigate(['/supervisorEntry']);
         }
@@ -37,16 +39,20 @@ console.log(data);
           this.router.navigate(['/simulatorOverview'])
         }
       }    
-      else {
-        console.log("no good");
-        this.data = "error";
-        console.log(data);
-        
+      this.server.verification = true;
+     
+    }, 
+    err =>{
+      if (err)
+      console.log("error");
+      
         this.server.verification = false;
-        this.router.navigate(['/log-in']);
-
-      }
-    });
+        //window.location.reload();
+        this.router.navigate(['/invalidLogIn']);
+        this.server.verification = false;
+        
+        
+      });
   }
   register(password : string, email : string){
     this.server.post<internModel>('auth/register', {password : password, email: email}).subscribe(data => {

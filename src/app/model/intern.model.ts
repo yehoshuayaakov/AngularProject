@@ -1,8 +1,9 @@
 import { WebcamImage } from "ngx-webcam";
+import { test } from "../supervisors/upload-test/upload-test.component";
 
 export interface internModel {
     name: string;
-    id: string;
+    id: number;
     phonenumber: number;
     citizenshipId: number; 
     email: string; 
@@ -25,5 +26,6 @@ export interface internModel {
         residency? : string,
         department? : string,
         yearsOfResidency? : number
-    };
+    },
+    tests?: test [],
 }

@@ -12,7 +12,7 @@ import { ServerService } from 'src/app/services/server.service';
 export class LogInComponent implements OnInit {
   email: string;
   password : string;
-  verification : boolean = false;
+  verification : boolean;
   showMessage : boolean;
   constructor(private server : ServerService, private authentification : AuthentificationService, private router : Router) { 
     
@@ -21,7 +21,11 @@ export class LogInComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.verification+"1");
+    
     this.verification = this.server.verification;
+    console.log(this.verification+"2");
+    
    
   }
 
