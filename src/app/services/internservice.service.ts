@@ -11,7 +11,7 @@ firstName: String;
 chosenIntern: any;
 currentInternUser: internModel = {
   name: null,
-  Id: null,
+  id: null,
   phonenumber: null,
   citizenshipId: null,
   email : null,

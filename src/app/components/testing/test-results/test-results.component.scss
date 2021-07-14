@@ -2,14 +2,40 @@ article {
     float: left;
     padding: 20px;
     width: 70%;
-    background-color: #f1f1f1;
-    height: 300px; /* only for demonstration, should be removed */
+    //background-color: #f1f1f1;
+    //height: 90%; /* only for demonstration, should be removed */
+}
+  section{
+    height: 100%;
   }
-  
   /* Clear floats after the columns */
-  section::after {
-      box-sizing: border-box;
-    content: "";
-    display: table;
+  //section::after {
+   //   box-sizing: border-box;
+    //content: "";
+   // display: table;
+   //height: 100%; 
+  //}
+  .btn:hover{
+    background-color: rgb(0, 124, 0);
+    color:whitesmoke;
+    }
+  .drop-box{
+    border: 1px dashed;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border-color:  rgb(0, 124, 0) ;
     
+    background-repeat: no-repeat;
+    background-size: 120px 30px;
+    background-position: center;
+  }
+  .drop-box:hover{
+    background-color: darkgray;
+    cursor: pointer;
+  }
+  table{     
+     border-bottom: black;
+
+    border-right: darkgray;
   }

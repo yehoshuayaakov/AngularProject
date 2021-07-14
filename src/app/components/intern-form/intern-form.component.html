@@ -1,12 +1,12 @@
 <app-header></app-header>
-<div class = "container border p-4 " style="margin-top: 3%;">
+<div class = "container border p-4 " style="margin-top: 5%;">
     <h1>Welcome intern!</h1>
     <br>
     <p>Please fill in the following fiels to create an account</p>
     <form class="row g-3" >
         <div class="col-md-4 mt-4">
           <label for="IdNum" class="form-label">ID number</label>
-          <input  class="form-control" id="IdNum" placeholder="Your ID number" [(ngModel)]="intern.Id"  [ngModelOptions]="{standalone: true}" required>
+          <input  class="form-control" id="IdNum" placeholder="Your ID number" [(ngModel)]="intern.id"  [ngModelOptions]="{standalone: true}" required>
         </div>
         <div class="col-md-4 mt-4">
           <label for="fullName" class="form-label">Full name</label>

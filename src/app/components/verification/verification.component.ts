@@ -99,9 +99,9 @@ register(){
   //})
 }
 if (this.supervisorService.isSupervisor){
-  this.server.registerSupervisor(this.supervisor.name, this.supervisor.phonenumber, this.supervisor.Id, this.supervisor.citizenshipId, this.supervisor.email).subscribe(data=> {
-    console.log(data);
-      })
+ // this.server.registerSupervisor(this.supervisor.name, this.supervisor.phonenumber, this.supervisor.Id, this.supervisor.citizenshipId, this.supervisor.email).subscribe(data=> {
+    //console.log(data);
+     // })
     }
   }
 }

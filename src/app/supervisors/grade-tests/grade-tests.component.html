@@ -1,1 +1,75 @@
-<p>grade-tests works!</p>
+
+<div class = " container-fluid">
+    <app-header></app-header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" routerLink = "/getAll">Get All Interns</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="" routerLink = "/uploadTests">Upload/Delete Test</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Grade Tests</a>
+              </li>      
+              <li class="nav-item">
+                <a class="nav-link " href="#" routerLink = "/allGradedTests" >Get All Graded Tests</a>
+              </li>
+          </ul>
+          </div>
+        </div>
+      </nav>
+<div class="container">
+    <h1 class = "mt-5">Test Grading</h1>
+    <div *ngIf = "tests.length > 1">
+    <h3 class = 'mt-3'>there are <span class = " text-success">{{tests.length}} </span> tests to be graded</h3>
+  </div>
+  <div *ngIf = "tests.length == 1">
+    <h3 class = 'mt-3'>there is <span class = " text-success">{{tests.length}} </span> test to be graded</h3>
+  </div>
+  <div *ngIf = "tests.length ==0 ">
+    <h3 class = 'mt-3'>there currently are no tests to be graded</h3>
+  </div>
+    <table  class="table mt-4">
+     
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Test Name</th>
+            <th scope="col">Test Id</th>
+            
+            <th scope="col">InternId</th>
+            <th scope="col">See test</th>
+            <th scope="col">Give grade</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody >
+            
+          <tr *ngFor = "let test of tests; let i = index" >
+            <th scope="row">{{i+1}}</th>
+            <td>{{test.name}}</td>
+            <td>{{test.id}}</td>
+            
+            <td>{{test.internId}}</td>
+            <td>  
+              <a href={{test.testUrl}}><button class = "btn border-success">See test</button></a>            
+            </td>
+            <td class = "col-2">
+              <input type="text" class="form-control " placeholder="enter grade" (input)="testGrade =  $event.target.value">
+            
+            </td>
+            <td>
+                <button class = "btn border-success" (click)= "submitGrade(test)">submit</button>
+            </td>
+          </tr>
+        
+      </table>
+   </div>
+</div>
