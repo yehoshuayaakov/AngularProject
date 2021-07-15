@@ -46,7 +46,9 @@ submitGrade(test: test){
     );
  console.log(date);
  console.log(test);
- //this.router.navigate(['gradeTests']);
+ this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+this.router.navigate(['/gradeTests']));
+ this.router.navigate(['/gradeTests']);
  
 }
 }

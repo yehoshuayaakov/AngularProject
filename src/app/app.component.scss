@@ -5,11 +5,17 @@ img {
 body{
     min-height: 400px;
     margin-bottom: 100px;
+    //height: 97%;
+      //border-style: border-box;
+      //border-color: rgb(158, 153, 153);
+     // border-width: 15px;
+     // border-style: solid;
+     // position: relative;
 }
 footer {
     background-color: #777;
     padding: 45px;
-    //text-align: center;
+    text-align: center;
     color: white;
     position : fixed;
     bottom : 0;
@@ -18,4 +24,12 @@ footer {
     width: 100%;
     background-attachment: scroll;
     border-top: black;
+  }
+  .page-border{
+    // height: 100%;
+    //   border-style: border-box;
+    //   border-color: black;
+    //   border-width: 15px;
+    //   border-style: solid;
+    //   border-style: groove;
   }

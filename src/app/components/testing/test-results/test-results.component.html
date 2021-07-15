@@ -2,7 +2,7 @@
 <app-header></app-header>
 <div class = "row ">
  
-    <section class = "col-2" style = "height: 90%; ">
+    <section class = "col-2 ml-5" style = "height: 90%; ">
         <div class = "text-center  ml-3" style = "margin-top: 180px;">
             
             <h3 class = mt-4>{{currentUser.name}}</h3>
@@ -83,10 +83,31 @@
       
     </article>
     
-        <article class = "col-4 ">
+        <article class = "col-3 mt-5">
             <h3 class = "text-center"> Latest Test Results</h3>
-            <div class = "card mt-3 ml-5 "  style = "height: 200px; width: 300px"></div>
-            <div class = "card ml-5 mt-3 " style = "height: 200px; width: 300px"></div>
+            <div style="display: block;">
+              <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+              </canvas>
+            </div>
+            <h3 class = "text-center mt-3"> All Test Results</h3>
+            <div style="display: block;">
+              <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData2"
+                [labels]="lineChartLabels2"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+              </canvas>
+            </div>
         </article>
 </div>  
     

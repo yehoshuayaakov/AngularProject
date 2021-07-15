@@ -9,15 +9,24 @@ import { test } from 'src/app/supervisors/upload-test/upload-test.component';
 })
 export class AllGradedTestsComponent implements OnInit {
 tests : test [] = [];
+testsAverage ;
   constructor(private testService : TestService) { }
 
   ngOnInit(): void {
+    var sum = 0;
 this.testService.getAllTests().subscribe(data =>{
   data.forEach(test => {
+    
+    
      if (test.completedCode == 2){
+      
     this.tests.push(test);
+    sum+=test.grade;
+      this.testsAverage = (sum/this.tests.length).toPrecision(4);
   }
-  });
+  }); 
+  //this.testsAverage = this.testService.getAverage(data);
+  
  })
   }
 
