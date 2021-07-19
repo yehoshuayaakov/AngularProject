@@ -98,7 +98,7 @@ console.log(this.currentUser);
              console.log(this.lastThreeGrades);
              
            }
-           
+           this.tests = this.tests.filter(t=> t.id !== test.id)
          
         }
         if (test.completedCode == 0){
@@ -114,6 +114,12 @@ console.log(this.currentUser);
        //console.log(this.tests);
        
         }
+        if (test.completedCode ==1){
+          if (test.internId === this.currentUser.id){
+            this.tests = this.tests.filter(t=> t.id !== test.id)
+          }
+        }
+       
         
         //console.log("filtertest2");
      
@@ -143,7 +149,7 @@ fileRef.getDownloadURL().subscribe((url)=>{
   downloadUrl = (url);
 console.log(downloadUrl);
 this.testService.submitTestforGrading(test.name, test.id, date, url, this.testService.completedCode, this.currentUser.id).subscribe();
-
+this.tests = this.tests.filter(t => t.id !== test.id);
 })
 
 }

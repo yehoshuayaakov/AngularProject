@@ -40,8 +40,10 @@ console.log(name);
   getAllTests() : Observable<any>{
     return this.http.get(this.baseUrl + "tests/getAll", this.server.getHeaders());
   }
-  seeTests(){
-  
+  deleteTest(test : test): Observable<any>{
+    console.log(test.id);
+    
+    return this.http.delete(this.baseUrl + "tests/"+ test.id, this.server.getHeaders());
   }
   submitTestforGrading(name : string, id : number, date : string, url : String, completedCode : number, internId : number) : Observable<any>{
     return this.http.post(this.baseUrl + "tests/create", {name : name, id : id, date : date, testUrl : url, completedCode : completedCode, internId : internId}, this.server.getHeaders())
@@ -57,4 +59,5 @@ console.log(name);
            testAverage = (sum/this.tests.length).toPrecision(4);
            return testAverage;
   }
+
 }

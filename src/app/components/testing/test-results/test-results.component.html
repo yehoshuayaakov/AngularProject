@@ -16,16 +16,16 @@
             <h4 class = "text-success">{{testAverage}}</h4>
         </div>    
       </section>
-    <article class = col-6 style = "height: 90%; border-left: black;">
+    <article class = 'col-6 ' style = "height: 90%; border-left: black;">
       <h2 class = "mt-5">Graded Tests</h2>
       <table class="table  mx-3 ">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope = "col">Test Name</th>
-            <th scope = "col">Test Id#</th>
-            <th scope="col">Grade</th>
-            <th scope="col">Get test</th>
+            <th class = "text-center" scope = "col">Test Id#</th>
+            <th class = "text-center" scope="col">Grade</th>
+            <th class = "text-center" scope="col">Get test</th>
             
           </tr>
         </thead>
@@ -34,10 +34,14 @@
           <tr *ngFor = "let test of gradedTests; let i = index">
             <th scope="row">{{i+1}}</th>
             <td >{{test.name}}</td>
-            <td >{{test.id}}</td>
-            <td>{{test.grade}}</td>
+            <td class = "text-center">{{test.id}}</td>
             <td>
-              <a href={{test.testUrl}} ><button class = "btn border-success">get test</button></a>  
+              <div class = "text-success text-center ">{{test.grade}}</div>
+            </td>
+            <td>
+              <div class = "text-center">              
+                <a href={{test.testUrl}} ><button class = "btn border-success ">get test</button></a>  
+            </div>
                 
             </td>
           
@@ -53,26 +57,27 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope = "col">Test Name</th>
-                <th scope = "col">Test Id#</th>
-                
-                <th scope="col">Get test</th>
-                <th scope="col">Submit test</th>
+                <th class = "text-center" scope = "col">Test Id#</th> 
+                <th class = "text-center" scope="col">Get Test</th>
+                <th  class = "text-center" scope="col">
+                  <div class = "ml-5" >Submit Test</div>
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor = "let test of tests; let i = index">
                 <th scope="row">{{i+1}}</th>
                 <td >{{test.name}}</td>
-                <td >{{test.id}}</td>
+                <td class = "text-center">{{test.id}}</td>
                 
-                <td>
+                <td class = "text-center">
                   <a href={{test.testUrl}} ><button class = "btn border-success">get test</button></a>  
                     
                 </td>
-                <td>
-                  <div class = 'drop-box ' appDragdrop (click)= "fileinput.click()" (fileDropped)= "upload($event, test)">
+                <td >
+                  <div class = 'justify-content-center drop-box' appDragdrop (click)= "fileinput.click()" (fileDropped)= "upload($event, test)" style="margin-left: 165px;">
                     <input  type="file" hidden #fileinput (change) = "upload($event)">
-                    <img  src = "../../../../assets/upload2.png" style = "height: 35px; width: 35px; margin-left: 42px; margin-top: 2px" >
+                    <img class = "text-center" src = "../../../../assets/upload2.png" style = "height: 35px; width: 35px;  margin-top: 2px; margin-left: 60px;" >
                   </div>
                     
                 </td>
@@ -80,7 +85,7 @@
               
             </tbody>
           </table>
-      
+          <div *ngIf = "tests.length == 0"><h5>There currently are no more tests to be taken</h5></div>
     </article>
     
         <article class = "col-3 mt-5">
