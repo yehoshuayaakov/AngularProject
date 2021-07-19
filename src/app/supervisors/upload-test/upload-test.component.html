@@ -8,7 +8,7 @@
           <a class="nav-link active" aria-current="page" routerLink = "/" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink = "/getAll">Get all interns</a>
+          <a class="nav-link" href="#" routerLink = "/getAll">Get All Interns</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="" routerLink = "/uploadTests">Upload/Delete Test</a>
@@ -54,9 +54,9 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Test Name</th>
-            <th scope="col">Test Id</th>
-            <th scope="col">Date entered</th>
-            <th scope="col">See test</th>
+            <th class = "text-center" scope="col">Test Id</th>
+            <th class = "text-center" scope="col">Date Entered</th>
+            <th class = "text-center" scope="col">See Test</th>
             <th></th>
           </tr>
         </thead>
@@ -65,13 +65,13 @@
           <tr *ngFor = "let test of tests; let i = index" >
             <th scope="row">{{i+1}}</th>
             <td>{{test.name}}</td>
-            <td>{{test.id}}</td>
-            <td>{{test.date}}</td>
-            <td>  
-              <a href={{test.testUrl}}><button class = "btn border-success">See test</button></a>            
+            <td class = "text-center">{{test.id}}</td>
+            <td class = "text-center">{{test.date}}</td>
+            <td class = "text-center">  
+              <a href={{test.testUrl}}><button class = "btn border-success">See Test</button></a>            
             </td>
             <td>
-              <button class = "btn border-success">Delete test</button>
+              <button class = "btn border-success" (click)= "deleteTest(test)">Delete Test</button>
             </td>
           </tr>
         

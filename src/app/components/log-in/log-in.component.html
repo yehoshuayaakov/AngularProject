@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class = "container d-flex justify-content-center  mt-5">
     <div class = "border p-5" style = "margin-top: 4%;">
-    <h1 *ngIf = "verification; else timeoutMessage" class = " text-center">Welcome! <br> Please log in.</h1>
-    <ng-template #timeoutMessage><h5 class ="text-danger text-center mt-3" >* Invalid entry <br>please re-sign in</h5></ng-template>
+    <h1 *ngIf = "verification; else timeoutMessage" class = " text-center "><span class = "text-success">Welcome!</span> <br> Please log in.</h1>
+    <ng-template #timeoutMessage><h5 class ="text-danger text-center mt-3" >* Invalid entry <br>please try again</h5></ng-template>
     <form >
         <div class="card mt-4 login mb-4" style="width: 20rem; padding: 20px; ">
         <div class = "row g-2">

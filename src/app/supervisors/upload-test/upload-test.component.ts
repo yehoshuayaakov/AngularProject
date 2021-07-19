@@ -7,6 +7,7 @@ import { InternserviceService } from 'src/app/services/internservice.service';
 import { map, finalize } from 'rxjs/operators'
 import { FormControl, FormGroup, ReactiveFormsModule  } from '@angular/forms';
 import { TestService } from 'src/app/services/test.service';
+import { error } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-upload-test',
   templateUrl: './upload-test.component.html',
@@ -129,8 +130,16 @@ resetForm(){
   this.testForm.reset();
   
 }
-
-  }
+deleteTest(test : test){
+  this.testService.deleteTest(test).subscribe();
+  this.tests = this.tests.filter(t => t.id !== test.id);
+  //var filePath = '/tests/'+test.name;
+ this.as.storage.refFromURL(test.testUrl).delete().then(()=>{
+ console.log("successfully deleted")}).catch((error)=>{
+   console.error("error with deletion: ", error)});
+   
+ };  
+}
 export interface test  {
 name : string;
 id : number;

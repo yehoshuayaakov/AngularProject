@@ -46,7 +46,10 @@ submitGrade(test: test){
     );
  console.log(date);
  console.log(test);
- //this.router.navigate(['gradeTests']);
+ this.tests = this.tests.filter(t => t.id !== test.id);
+//  this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+// this.router.navigate(['/gradeTests']));
+//  this.router.navigate(['/gradeTests']);
  
 }
 }

@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class = "container mt-5 d-flex justify-content-center" >
+<div class = "container  d-flex justify-content-center" style = "margin-top: 9%;">
    <div class = "col-6 border p-4 margin mt-2 text-center">
        <div class="">
     <div class = "" *ngIf = "firstTry">
@@ -17,9 +17,9 @@
             <div class="input-group  mt-5" style="margin-left: 145px;">
                 <div class = "row  ">
                     <input #first formControlName="first" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(first.value.length == 1) ? second.focus() : ''" autofocus>
-                    <input #second formControlName="second" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(second.value.length == 1) ? third.focus() : ''">
-                    <input #third formControlName="third" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(third.value.length == 1) ? fourth.focus() : ''">
-                    <input #fourth formControlName="fourth" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text"> 
+                    <input #second formControlName="second" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(second.value.length == 1) ? third.focus() : first.focus()">
+                    <input #third formControlName="third" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(third.value.length == 1) ? fourth.focus() : second.focus()">
+                    <input #fourth formControlName="fourth" class = "form-control col-1 ml-3"style="font-size:23px; text-align-center"size = "3" maxlength = "1" type="text" (keyup)="(fourth.value.length == 1) ? fourth.focus() : third.focus()"> 
                     <br>
                 </div>   
             </div>

@@ -15,19 +15,26 @@ export class MoreInternInfoComponent implements OnInit {
 intern: internModel;
 tests: test[] = [];
 show: boolean = false;
+testsAverage;
   constructor(private testService : TestService, private internService : InternserviceService, private router : Router, private authentification : AuthentificationService) { 
     this.intern = internService.chosenIntern;
   }
 
   ngOnInit(): void {
 //this.tests = this.intern.tests;
+var sum = 0;
 this.testService.getAllTests().subscribe(data=>{
   data.forEach(test => {
     if (test.completedCode == 2 && test.internId == this.intern.id){
       this.tests.push(test);
+sum+=test.grade;
     }
-  });
+    
+
+      this.testsAverage = (sum/this.tests.length).toPrecision(4);
+  })
 })
+
   }
 goBack(){
   

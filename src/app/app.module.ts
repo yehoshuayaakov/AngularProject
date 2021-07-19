@@ -38,6 +38,7 @@ import { DragdropDirective } from './dragdrop.directive';
 import { InvalidLogInComponent } from './components/invalid-log-in/invalid-log-in.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllGradedTestsComponent } from './components/all-graded-tests/all-graded-tests.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { AllGradedTestsComponent } from './components/all-graded-tests/all-grade
     HttpClientModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firbase)
+    AngularFireModule.initializeApp(environment.firbase),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

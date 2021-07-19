@@ -31,6 +31,7 @@
           <th scope="col">#</th>
           <th scope = "col">Test Name</th>
           <th scope = "col">Intern Id#</th>
+          <th scope = "col">Date & Time Taken</th>
           <th scope="col">Grade</th>
           <th scope="col">Get test</th>
           
@@ -42,6 +43,7 @@
           <th scope="row">{{i+1}}</th>
           <td >{{test.name}}</td>
           <td >{{test.internId}}</td>
+          <td >{{test.date}}</td>
           <td>{{test.grade}}</td>
           <td>
             <a href={{test.testUrl}} ><button class = "btn border-success">get test</button></a>  
@@ -52,4 +54,5 @@
         
       </tbody>
     </table> 
+    <h2 class = "mt-2">Average of all tests: <span class = "text-warning">{{testsAverage}}</span></h2>
   </div>

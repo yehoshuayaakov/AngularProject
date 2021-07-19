@@ -82,11 +82,19 @@ getInternsWithToken(): Observable<any>{
     this.router.navigate(['/log-in']);
   }
   
-  return this.http.get(this.baseUrl + "api/interns/getAll", {'headers': headers});
+  return this.http.get(this.baseUrl + "api/interns/getAll", this.getHeaders());
 }
 registerUser(user : {}): Observable<object>{
   console.log("server test " + user);
   
   return this.http.post(this.baseUrl + "createUser/create", user)
+}
+getHeaders(){
+  var string = this.token.toString();
+  const headers = {
+    'content-type' :  'application/json',
+    'x-access-token' : string
+  }
+  return {headers : headers}
 }
 }

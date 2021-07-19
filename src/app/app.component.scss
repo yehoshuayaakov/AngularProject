@@ -5,17 +5,35 @@ img {
 body{
     min-height: 400px;
     margin-bottom: 100px;
+   //height: 97%;
+      //border-style: border-box;
+//       border-top-color: rgb(158, 153, 153);
+//       border-right-color: rgb(158, 153, 153);
+//       border-left-color: rgb(158, 153, 153);
+//       border-bottom: none;
+//       border-width: 15px;
+//      border-style: solid;
+//       position: relative;
+// 
 }
 footer {
     background-color: #777;
     padding: 45px;
-    //text-align: center;
+    text-align: center;
     color: white;
     position : fixed;
     bottom : 0;
-    //height : 40px;
+    height : 40px;
     margin-top : 10px;
     width: 100%;
     background-attachment: scroll;
-    border-top: black;
+   border-top: black;
+  }
+  .page-border{
+    // height: 100%;
+    //   border-style: border-box;
+    //   border-color: black;
+    //   border-width: 15px;
+    //   border-style: solid;
+    //   border-style: groove;
   }

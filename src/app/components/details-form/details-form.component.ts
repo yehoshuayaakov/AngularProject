@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { internModel } from 'src/app/model/intern.model';
 import { InternserviceService } from 'src/app/services/internservice.service';
 import { ServerService } from 'src/app/services/server.service';
+import { TestService } from 'src/app/services/test.service';
+import { test } from 'src/app/supervisors/upload-test/upload-test.component';
 
 @Component({
   selector: 'app-details-form',
@@ -13,7 +15,7 @@ import { ServerService } from 'src/app/services/server.service';
 export class DetailsFormComponent implements OnInit {
 personalInfo : FormGroup;
 currentUser : internModel;
-  constructor( private router : Router, private internService : InternserviceService, private server : ServerService) { 
+  constructor( private router : Router, private internService : InternserviceService, private server : ServerService, private testService : TestService) { 
     this.currentUser = internService.currentInternUser;
   }
 
@@ -47,4 +49,5 @@ addDetails(form : FormGroup){
     //console.log(form.value);
  // })
 }
+
 }
